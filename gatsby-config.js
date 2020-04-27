@@ -1,5 +1,6 @@
 module.exports = {
   plugins: [
+    `gatsby-plugin-styled-components`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -7,6 +8,6 @@ module.exports = {
         path: `${__dirname}/contents/`,
       },
     },
-    `gatsby-transformer-remark`
-  ]
+    `gatsby-transformer-remark`,
+  ],
 }
