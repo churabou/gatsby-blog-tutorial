@@ -2,3 +2,13 @@ body {
   margin: 0px;
   --theme-color: hsl(209, 47%, 35%);
 }
+
+.gatsby-remark-code-name {
+  margin: 0px 0px -0.5em 0.5em;
+}
+
+.gatsby-remark-code-name span {
+  background: gray;
+  color: white;
+  padding: 0.25em;
+}
