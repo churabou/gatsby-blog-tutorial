@@ -1,4 +1,7 @@
 {
+  "scripts": {
+    "deploy": "gatsby build --prefix-paths && gh-pages -d public"
+  },
   "devDependencies": {
     "babel-plugin-styled-components": "^1.10.7",
     "gatsby": "^2.20.36",
@@ -6,6 +9,7 @@
     "gatsby-remark-prismjs": "^3.5.0",
     "gatsby-source-filesystem": "^2.2.5",
     "gatsby-transformer-remark": "^2.7.5",
+    "gh-pages": "^2.2.0",
     "prismjs": "^1.20.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",

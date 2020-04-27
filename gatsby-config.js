@@ -1,4 +1,5 @@
 module.exports = {
+  pathPrefix: "/gatsby-blog-tutorial",
   plugins: [
     `gatsby-plugin-styled-components`,
     {
