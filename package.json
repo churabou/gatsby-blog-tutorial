@@ -1,0 +1,7 @@
+{
+  "devDependencies": {
+    "gatsby": "^2.20.36",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1"
+  }
+}
