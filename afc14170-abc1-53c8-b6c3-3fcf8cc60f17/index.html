@@ -1,0 +1,127 @@
+<!DOCTYPE html><html><head><meta charSet="utf-8"/><meta http-equiv="x-ua-compatible" content="ie=edge"/><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/><style data-href="/gatsby-blog-tutorial/styles.63ad972f984b81eb4db4.css">body{margin:0;--theme-color:#2f5b83}code[class*=language-],pre[class*=language-]{color:#f8f8f2;background:none;text-shadow:0 1px rgba(0,0,0,.3);font-family:Consolas,Monaco,Andale Mono,Ubuntu Mono,monospace;font-size:1em;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;word-wrap:normal;line-height:1.5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-ms-hyphens:none;hyphens:none}pre[class*=language-]{padding:1em;margin:.5em 0;overflow:auto;border-radius:.3em}:not(pre)>code[class*=language-],pre[class*=language-]{background:#272822}:not(pre)>code[class*=language-]{padding:.1em;border-radius:.3em;white-space:normal}.token.cdata,.token.comment,.token.doctype,.token.prolog{color:#708090}.token.punctuation{color:#f8f8f2}.token.namespace{opacity:.7}.token.constant,.token.deleted,.token.property,.token.symbol,.token.tag{color:#f92672}.token.boolean,.token.number{color:#ae81ff}.token.attr-name,.token.builtin,.token.char,.token.inserted,.token.selector,.token.string{color:#a6e22e}.language-css .token.string,.style .token.string,.token.entity,.token.operator,.token.url,.token.variable{color:#f8f8f2}.token.atrule,.token.attr-value,.token.class-name,.token.function{color:#e6db74}.token.keyword{color:#66d9ef}.token.important,.token.regex{color:#fd971f}.token.bold,.token.important{font-weight:700}.token.italic{font-style:italic}.token.entity{cursor:help}</style><meta name="generator" content="Gatsby 2.20.36"/><style data-styled="" data-styled-version="5.1.0">.dmeTcP{background:var(--theme-color);margin:0px;padding:0.5em 1em;color:white;}/*!sc*/
+.dmeTcP a{-webkit-text-decoration:none;text-decoration:none;color:white;}/*!sc*/
+data-styled.g1[id="Header__Wrapper-sc-1isb4n6-0"]{content:"dmeTcP,"}/*!sc*/
+.ecpyWB{background:#999;padding:1em;color:white;}/*!sc*/
+data-styled.g2[id="Footer__Wrapper-qhytvz-0"]{content:"ecpyWB,"}/*!sc*/
+.cJcvIG{background:#f4f4f4;padding:2em;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-box-pack:space-around;-webkit-justify-content:space-around;-ms-flex-pack:space-around;justify-content:space-around;-webkit-flex-wrap:wrap;-ms-flex-wrap:wrap;flex-wrap:wrap;word-wrap:break-word;}/*!sc*/
+.cJcvIG > article{width:60%;background:white;border-radius:2px;padding:1.5em;margin-bottom:1.5em;}/*!sc*/
+@media screen and (max-width:768px){.cJcvIG > article{width:100%;}}/*!sc*/
+.cJcvIG > article div:last-child img{max-width:100%;}/*!sc*/
+.cJcvIG > article div:last-child a{color:var(--theme-color);-webkit-text-decoration:none;text-decoration:none;}/*!sc*/
+.cJcvIG .frontmatter.tag{display:inline-block;background:var(--theme-color);color:white;margin:0 0.25em 0.25em 0;padding:0.25em;}/*!sc*/
+.cJcvIG .frontmatter.date{margin-top:0.5em;color:#666;}/*!sc*/
+data-styled.g4[id="post__Body-hsjs07-0"]{content:"cJcvIG,"}/*!sc*/
+</style><link as="script" rel="preload" href="/gatsby-blog-tutorial/webpack-runtime-875864f198321d4f7ff5.js"/><link as="script" rel="preload" href="/gatsby-blog-tutorial/framework-995310802c8b4a765741.js"/><link as="script" rel="preload" href="/gatsby-blog-tutorial/styles-c3197c6105318d4816ab.js"/><link as="script" rel="preload" href="/gatsby-blog-tutorial/app-39e439a958f68f704ff4.js"/><link as="script" rel="preload" href="/gatsby-blog-tutorial/291a736a4998dc6bb1e7dae6dfd245355445eafd-31b0091029cd517b9523.js"/><link as="script" rel="preload" href="/gatsby-blog-tutorial/component---src-templates-post-js-fdb08e0a613579cf49e2.js"/><link as="fetch" rel="preload" href="/gatsby-blog-tutorial/page-data/afc14170-abc1-53c8-b6c3-3fcf8cc60f17/page-data.json" crossorigin="anonymous"/><link as="fetch" rel="preload" href="/gatsby-blog-tutorial/page-data/app-data.json" crossorigin="anonymous"/></head><body><div id="___gatsby"><div style="outline:none" tabindex="-1" id="gatsby-focus-wrapper"><header class="Header__Wrapper-sc-1isb4n6-0 dmeTcP"><h1><a href="/gatsby-blog-tutorial/">Qiitaに書いたやつ</a></h1></header><div class="post__Body-hsjs07-0 cJcvIG"><article><h1>UIButtonをdeclarativeに扱う</h1><div><span class="frontmatter tag">Objective-C</span><span class="frontmatter tag">Xcode</span><span class="frontmatter tag">iOS</span><span class="frontmatter tag">Vue.js</span><span class="frontmatter tag">Swift</span></div><div class="frontmatter date"><b>2019年03月31日</b></div><div><p>vueとかanglureとか触ってるとSwiftでボタン定義するのすごくだるいなと思う。(mac book airなのでIBは触りたくない）</p>
+<div class="gatsby-highlight" data-language=".html"><pre class="language-.html"><code class="language-.html">&lt;button ng-click=&quot;ctrl.onClick&quot;&gt;anglure&lt;/button&gt;
+&lt;button v-on:click=&quot;say(&#39;what&#39;)&quot;&gt; vue &lt;/button&gt; </code></pre></div>
+<p>だからButtonクラスを作ってちょっとだけ楽してみた。</p>
+<div class="gatsby-highlight" data-language=".swift"><pre class="language-.swift"><code class="language-.swift">final class ViewController: UIViewController {
+
+    private lazy var button = Button(
+        title: &quot;click&quot;,
+        backgroundColor: .blue,
+        parent: view,
+        onClick: onClickButton
+    )
+
+    private var onClickButton = {
+        print(&quot;tap&quot;)
+    }
+}</code></pre></div>
+<hr>
+<p>ちなみにself参照するときはweakつけないとなーくらいに思ってたんでずけど、</p>
+<div class="gatsby-highlight" data-language=".swift"><pre class="language-.swift"><code class="language-.swift">  private var onClickButton = { [weak self] in
+       self?.hogehoge()
+  }</code></pre></div>
+<p>関数を渡してあげると、buttonが解放されなかった。なんででしょうか・・</p>
+<div class="gatsby-highlight" data-language=".swift"><pre class="language-.swift"><code class="language-.swift">final class ViewController: UIViewController {
+
+    private lazy var button = Button(
+        title: &quot;click&quot;,
+        backgroundColor: .blue,
+        parent: view,
+        onClick: tapButton
+    )
+
+    private func tapButton() {
+        print(&quot;tap&quot;)
+    }
+}</code></pre></div>
+<details><summary>ソースはこれです</summary><div>
+<div class="gatsby-highlight" data-language=".swift"><pre class="language-.swift"><code class="language-.swift">final class Button: UIButton {
+  
+    convenience init(
+        title: String = &quot;&quot;,
+        color: UIColor = .darkGray,
+        backgroundColor: UIColor = .clear,
+        parent: UIView? = nil,
+        onClick: (() -&gt; Swift.Void)? = nil
+        ) {
+        self.init(frame: .zero)
+        
+        addTarget(self, action: #selector(actionClick), for: .touchUpInside)
+        setTitle(title, for: .normal)
+        setTitleColor(color, for: .normal)
+        self.backgroundColor = backgroundColor
+        clickHandler = onClick
+        parent?.addSubview(self)
+    }
+    
+    private var clickHandler: (() -&gt; Swift.Void)?
+    
+    @objc private func actionClick() {
+        clickHandler?()
+    }
+}</code></pre></div>
+</div></details>
+<p>Swiftでもこうやってかけるようにしてみようかな・・</p>
+<div class="gatsby-highlight" data-language=".swift"><pre class="language-.swift"><code class="language-.swift">    private lazy var label = Label(
+        textColor: .darkGray,
+        parent: view,
+        bind: store.state.text
+    )</code></pre></div>
+<h2>昔ちょこっと試してた初期化方法(おまけ)</h2>
+<h3>lazyで初期化</h3>
+<p>基本的にはこれで初期化している。Extensionを使ってないから普通にSnipetにしてどこでも使える。</p>
+<div class="gatsby-highlight" data-language=".swift"><pre class="language-.swift"><code class="language-.swift">final class ViewController: UIViewController {
+
+    private lazy var button: UIButton = {
+        let b = UIButton()
+        b.setTitle(&quot;button&quot;, for: .normal)
+        b.addTarget(self, action: #selector(actionTap), for: .touchUpInside)
+        ...
+        return b
+    }()
+    
+    @objc private func actionTap() {
+        print(&quot;button touch up inside&quot;)
+    }
+}</code></pre></div>
+<h3>メソッドチェーンで初期化</h3>
+<p>メソッドチェーンでかけるExtensionを作ってKotlinのスコープ関数のように初期化してみたり</p>
+<div class="gatsby-highlight" data-language=".swift"><pre class="language-.swift"><code class="language-.swift">final class ViewController: UIViewController {
+
+    private lazy var button = UIButton().apply { $0
+        .setTitle(&quot;button&quot;, for: .normal)
+        .addTarget(self, action: #selector(actionTap), for: .touchUpInside)
+        ...
+    }
+    
+    @objc private func actionTap() {
+        print(&quot;button touch up inside&quot;)
+    }
+}</code></pre></div>
+<h3>　AddTargetのみ省略</h3>
+<p>RxSwiftの<code class="language-text">button.rx.tap</code>が便利だったので
+NotificationCenterやocjcの黒魔術を使ってaddTargetのみ省略したり</p>
+<div class="gatsby-highlight" data-language=".swift"><pre class="language-.swift"><code class="language-.swift">final class ViewController: UIViewController {
+    
+    private var button = UIButton()
+    
+    private func setUpButton() {
+        button.setTitle(&quot;button&quot;, for: .normal)
+        button.onTap = {
+           print(&quot;button touch up inside&quot;)
+        }
+    }
+}</code></pre></div></div></article></div><footer class="Footer__Wrapper-qhytvz-0 ecpyWB">2020 churabou</footer></div><div id="gatsby-announcer" style="position:absolute;top:0;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0" aria-live="assertive" aria-atomic="true"></div></div><script id="gatsby-script-loader">/*<![CDATA[*/window.pagePath="/afc14170-abc1-53c8-b6c3-3fcf8cc60f17";/*]]>*/</script><script id="gatsby-chunk-mapping">/*<![CDATA[*/window.___chunkMapping={"app":["/app-39e439a958f68f704ff4.js"],"component---src-pages-index-js":["/component---src-pages-index-js-7fc9e6e69cd9c2fd2141.js"],"component---src-templates-post-js":["/component---src-templates-post-js-fdb08e0a613579cf49e2.js"]};/*]]>*/</script><script src="/gatsby-blog-tutorial/component---src-templates-post-js-fdb08e0a613579cf49e2.js" async=""></script><script src="/gatsby-blog-tutorial/291a736a4998dc6bb1e7dae6dfd245355445eafd-31b0091029cd517b9523.js" async=""></script><script src="/gatsby-blog-tutorial/app-39e439a958f68f704ff4.js" async=""></script><script src="/gatsby-blog-tutorial/styles-c3197c6105318d4816ab.js" async=""></script><script src="/gatsby-blog-tutorial/framework-995310802c8b4a765741.js" async=""></script><script src="/gatsby-blog-tutorial/webpack-runtime-875864f198321d4f7ff5.js" async=""></script></body></html>

@@ -1,0 +1,152 @@
+<!DOCTYPE html><html><head><meta charSet="utf-8"/><meta http-equiv="x-ua-compatible" content="ie=edge"/><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/><style data-href="/gatsby-blog-tutorial/styles.63ad972f984b81eb4db4.css">body{margin:0;--theme-color:#2f5b83}code[class*=language-],pre[class*=language-]{color:#f8f8f2;background:none;text-shadow:0 1px rgba(0,0,0,.3);font-family:Consolas,Monaco,Andale Mono,Ubuntu Mono,monospace;font-size:1em;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;word-wrap:normal;line-height:1.5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-ms-hyphens:none;hyphens:none}pre[class*=language-]{padding:1em;margin:.5em 0;overflow:auto;border-radius:.3em}:not(pre)>code[class*=language-],pre[class*=language-]{background:#272822}:not(pre)>code[class*=language-]{padding:.1em;border-radius:.3em;white-space:normal}.token.cdata,.token.comment,.token.doctype,.token.prolog{color:#708090}.token.punctuation{color:#f8f8f2}.token.namespace{opacity:.7}.token.constant,.token.deleted,.token.property,.token.symbol,.token.tag{color:#f92672}.token.boolean,.token.number{color:#ae81ff}.token.attr-name,.token.builtin,.token.char,.token.inserted,.token.selector,.token.string{color:#a6e22e}.language-css .token.string,.style .token.string,.token.entity,.token.operator,.token.url,.token.variable{color:#f8f8f2}.token.atrule,.token.attr-value,.token.class-name,.token.function{color:#e6db74}.token.keyword{color:#66d9ef}.token.important,.token.regex{color:#fd971f}.token.bold,.token.important{font-weight:700}.token.italic{font-style:italic}.token.entity{cursor:help}</style><meta name="generator" content="Gatsby 2.20.36"/><style data-styled="" data-styled-version="5.1.0">.dmeTcP{background:var(--theme-color);margin:0px;padding:0.5em 1em;color:white;}/*!sc*/
+.dmeTcP a{-webkit-text-decoration:none;text-decoration:none;color:white;}/*!sc*/
+data-styled.g1[id="Header__Wrapper-sc-1isb4n6-0"]{content:"dmeTcP,"}/*!sc*/
+.ecpyWB{background:#999;padding:1em;color:white;}/*!sc*/
+data-styled.g2[id="Footer__Wrapper-qhytvz-0"]{content:"ecpyWB,"}/*!sc*/
+.cJcvIG{background:#f4f4f4;padding:2em;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-box-pack:space-around;-webkit-justify-content:space-around;-ms-flex-pack:space-around;justify-content:space-around;-webkit-flex-wrap:wrap;-ms-flex-wrap:wrap;flex-wrap:wrap;word-wrap:break-word;}/*!sc*/
+.cJcvIG > article{width:60%;background:white;border-radius:2px;padding:1.5em;margin-bottom:1.5em;}/*!sc*/
+@media screen and (max-width:768px){.cJcvIG > article{width:100%;}}/*!sc*/
+.cJcvIG > article div:last-child img{max-width:100%;}/*!sc*/
+.cJcvIG > article div:last-child a{color:var(--theme-color);-webkit-text-decoration:none;text-decoration:none;}/*!sc*/
+.cJcvIG .frontmatter.tag{display:inline-block;background:var(--theme-color);color:white;margin:0 0.25em 0.25em 0;padding:0.25em;}/*!sc*/
+.cJcvIG .frontmatter.date{margin-top:0.5em;color:#666;}/*!sc*/
+data-styled.g4[id="post__Body-hsjs07-0"]{content:"cJcvIG,"}/*!sc*/
+</style><link as="script" rel="preload" href="/gatsby-blog-tutorial/webpack-runtime-875864f198321d4f7ff5.js"/><link as="script" rel="preload" href="/gatsby-blog-tutorial/framework-995310802c8b4a765741.js"/><link as="script" rel="preload" href="/gatsby-blog-tutorial/styles-c3197c6105318d4816ab.js"/><link as="script" rel="preload" href="/gatsby-blog-tutorial/app-39e439a958f68f704ff4.js"/><link as="script" rel="preload" href="/gatsby-blog-tutorial/291a736a4998dc6bb1e7dae6dfd245355445eafd-31b0091029cd517b9523.js"/><link as="script" rel="preload" href="/gatsby-blog-tutorial/component---src-templates-post-js-fdb08e0a613579cf49e2.js"/><link as="fetch" rel="preload" href="/gatsby-blog-tutorial/page-data/fa82a31d-4690-5cb8-a507-42237d6afec2/page-data.json" crossorigin="anonymous"/><link as="fetch" rel="preload" href="/gatsby-blog-tutorial/page-data/app-data.json" crossorigin="anonymous"/></head><body><div id="___gatsby"><div style="outline:none" tabindex="-1" id="gatsby-focus-wrapper"><header class="Header__Wrapper-sc-1isb4n6-0 dmeTcP"><h1><a href="/gatsby-blog-tutorial/">Qiitaに書いたやつ</a></h1></header><div class="post__Body-hsjs07-0 cJcvIG"><article><h1>実機１台で別端末のレイアウトを確認する方法</h1><div><span class="frontmatter tag">Xcode</span><span class="frontmatter tag">iOS</span><span class="frontmatter tag">Swift</span></div><div class="frontmatter date"><b>2019年08月15日</b></div><div><p>電車内でiPhone5というかSEを使っている人を見ると「まだこつい５使ってんのかよ」と思ってしまいます。奴らは最近主流のiPhone8やiPhoneXなどの端末と比べると一回り小さいため、iPhoneSEで起動してみると実はレイアウトが崩れてたなんてことが頻繁に起こってしまいます。</p>
+<p>なにか解決策はないかと軽くググってみたら、下記の記事を見つけました。
+<a href="https://qiita.com/usagimaru/items/dbd9ed49b04e113eb6de">https://qiita.com/usagimaru/items/dbd9ed49b04e113eb6de</a>
+これを参考にすれば実機でお手軽にディバイス別のレイアウトを確認することができそうだと思いました。</p>
+<h4>デモ</h4>
+<p>作成したDebugWindowをAppDelegateで指定します。
+すると右上にDと書かれたボタンが表示されタップするとディバイス一覧が表示され、対象のディバイスを選択するとwindowのサイズが対象ディバイスのサイズに変更されます。</p>
+<div class="gatsby-highlight" data-language=".swift"><pre class="language-.swift"><code class="language-.swift">    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -&gt; Bool {
+        window = DebugWindow()
+        window?.rootViewController = ViewController()
+        window?.makeKeyAndVisible()
+        return true
+    }</code></pre></div>
+<p><img src="https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/166241/738d783e-ab79-4b49-34b6-52d0678f9d4b.gif" alt="demo.gif"></p>
+<h4>ソース</h4>
+<div class="gatsby-highlight" data-language=".swift"><pre class="language-.swift"><code class="language-.swift">enum Device: CaseIterable {
+    // iPhone SE
+    case inch4
+    // iPhone 6 iPhone 6s iPhone 7 iPhone 8
+    case inch4_7
+    // iPhone 6 Plus iPhone 6s Plus iPhone 7 Plus iPhone 8 Plus
+    case inch5_5
+    // iPhone X
+    case inch5_7
+    // iPhone XR
+    case inch6_1
+
+    var size: CGSize {
+        switch self {
+        case .inch4: return .init(width: 320, height: 568)
+        case .inch4_7: return .init(width: 375, height: 667)
+        case .inch5_5: return .init(width: 414, height: 736)
+        case .inch5_7: return .init(width: 375, height: 812)
+        case .inch6_1: return .init(width: 414, height: 896)
+        }
+    }
+
+    var label: String {
+        switch self {
+        case .inch4: return &quot;iPhone SE&quot;
+        case .inch4_7: return &quot;iPhone 6 iPhone 6s iPhone 7 iPhone 8&quot;
+        case .inch5_5: return &quot;iPhone 6 Plus iPhone 6s Plus iPhone 7 Plus iPhone 8 Plus&quot;
+        case .inch5_7: return &quot;iPhone X&quot;
+        case .inch6_1: return &quot;iPhone XR&quot;
+        }
+    }
+}
+
+final class DebugWindow: UIWindow {
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        configure()
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError(&quot;init(coder:) has not been implemented&quot;)
+    }
+    
+    private lazy var menuButton: UIButton = {
+        let it = UIButton()
+        it.addTarget(self, action: #selector(actionTap), for: .touchUpInside)
+        it.backgroundColor = UIColor(red: 55 / 255, green: 132 / 255, blue: 233 / 255, alpha: 1)
+        it.setTitle(&quot;D&quot;, for: .normal)
+        it.setTitleColor(.white, for: .normal)
+        it.titleLabel?.font = .boldSystemFont(ofSize: 20)
+        it.layer.cornerRadius = 20
+        it.clipsToBounds = true
+        return it
+    }()
+    
+    override func didAddSubview(_ subview: UIView) {
+        super.didAddSubview(subview)
+        bringSubviewToFront(menuButton)
+    }
+}
+
+private extension DebugWindow {
+    func configure() {
+        addSubview(menuButton)
+        menuButton.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            menuButton.topAnchor.constraint(equalTo: topAnchor, constant: 40),
+            menuButton.rightAnchor.constraint(equalTo: rightAnchor, constant: -40),
+            menuButton.widthAnchor.constraint(equalToConstant: 40),
+            menuButton.heightAnchor.constraint(equalToConstant: 40)
+            ])
+    }
+    
+    @objc func actionTap() {
+        let sheet = UIAlertController(title: &quot;select device&quot;, message: nil, preferredStyle: .actionSheet)
+        Device.allCases.forEach { device in
+            sheet.addAction(UIAlertAction(title: device.label, style: .default) { _ in
+                self.adjustSize(device: device)
+            })
+        }
+        sheet.addAction(UIAlertAction(title: &quot;cancel&quot;, style: .cancel))
+        topViewController()?.present(sheet, animated: true)
+    }
+    
+    func adjustSize(device: Device) {
+        let bounds = UIScreen.main.bounds
+        
+        UIView.animate(withDuration: 0.25) {
+            self.frame = bounds.insetBy(dx: (bounds.width - device.size.width) / 2, dy: (bounds.height - device.size.height) / 2)
+        }
+        rootViewController = ViewController() // RootViewControllerもしくは検証したいViewControllerを指定
+        bringSubviewToFront(menuButton)
+    }
+    
+    func topViewController(controller: UIViewController? = UIApplication.shared.keyWindow?.rootViewController) -&gt; UIViewController? {
+        if let navigationController = controller as? UINavigationController {
+            return topViewController(controller: navigationController.visibleViewController)
+        }
+        if let tabController = controller as? UITabBarController {
+            if let selected = tabController.selectedViewController {
+                return topViewController(controller: selected)
+            }
+        }
+        if let presented = controller?.presentedViewController {
+            return topViewController(controller: presented)
+        }
+        return controller
+    }
+}</code></pre></div>
+<p><a href="https://qiita.com/tomohisaota/items/f8857d01f328e34fb551">https://qiita.com/tomohisaota/items/f8857d01f328e34fb551</a></p>
+<h4>問題点⚠</h4>
+<ul>
+<li>ViewがAutoLayoutで組まれていることが前提です。</li>
+<li>UIScreen.main.boundsは変わらないので、これを条件にレイアウトを組んでいる場合は検証になりません</li>
+<li>SafeAreaがなくなるから、iPhoneX以上の検証が無意味になる。</li>
+<li>実はアラート表示時にWarningが出ているのは秘密👮</li>
+</ul>
+<h4>感想</h4>
+<ul>
+<li>いけると思ったけど全然ダメでした。</li>
+<li>使用箇所は限定的でしたが、さくっと試せて便利といえば便利でした。</li>
+<li>ぶっちゃけAutoLayoutうんぬんじゃなくてラベルの文字がよく崩れます。NSAttributedStringとUILabelのadjustsFontSizeToFitWidthが一緒に使えればいいのですが。</li>
+<li>どうでもいいですがiPhone8のサイズでデザインが上がってきて、それどおりにマージンなどを組むとSEでレイアウトが崩るのでview.bottom + 60 などデザイン上のマージンの値をそのまま使うのではなく、画面全体に対する比率でレイアウトを組むように心がけています。</li>
+</ul></div></article></div><footer class="Footer__Wrapper-qhytvz-0 ecpyWB">2020 churabou</footer></div><div id="gatsby-announcer" style="position:absolute;top:0;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0" aria-live="assertive" aria-atomic="true"></div></div><script id="gatsby-script-loader">/*<![CDATA[*/window.pagePath="/fa82a31d-4690-5cb8-a507-42237d6afec2";/*]]>*/</script><script id="gatsby-chunk-mapping">/*<![CDATA[*/window.___chunkMapping={"app":["/app-39e439a958f68f704ff4.js"],"component---src-pages-index-js":["/component---src-pages-index-js-7fc9e6e69cd9c2fd2141.js"],"component---src-templates-post-js":["/component---src-templates-post-js-fdb08e0a613579cf49e2.js"]};/*]]>*/</script><script src="/gatsby-blog-tutorial/component---src-templates-post-js-fdb08e0a613579cf49e2.js" async=""></script><script src="/gatsby-blog-tutorial/291a736a4998dc6bb1e7dae6dfd245355445eafd-31b0091029cd517b9523.js" async=""></script><script src="/gatsby-blog-tutorial/app-39e439a958f68f704ff4.js" async=""></script><script src="/gatsby-blog-tutorial/styles-c3197c6105318d4816ab.js" async=""></script><script src="/gatsby-blog-tutorial/framework-995310802c8b4a765741.js" async=""></script><script src="/gatsby-blog-tutorial/webpack-runtime-875864f198321d4f7ff5.js" async=""></script></body></html>

@@ -1,0 +1,186 @@
+<!DOCTYPE html><html><head><meta charSet="utf-8"/><meta http-equiv="x-ua-compatible" content="ie=edge"/><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/><style data-href="/gatsby-blog-tutorial/styles.63ad972f984b81eb4db4.css">body{margin:0;--theme-color:#2f5b83}code[class*=language-],pre[class*=language-]{color:#f8f8f2;background:none;text-shadow:0 1px rgba(0,0,0,.3);font-family:Consolas,Monaco,Andale Mono,Ubuntu Mono,monospace;font-size:1em;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;word-wrap:normal;line-height:1.5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-ms-hyphens:none;hyphens:none}pre[class*=language-]{padding:1em;margin:.5em 0;overflow:auto;border-radius:.3em}:not(pre)>code[class*=language-],pre[class*=language-]{background:#272822}:not(pre)>code[class*=language-]{padding:.1em;border-radius:.3em;white-space:normal}.token.cdata,.token.comment,.token.doctype,.token.prolog{color:#708090}.token.punctuation{color:#f8f8f2}.token.namespace{opacity:.7}.token.constant,.token.deleted,.token.property,.token.symbol,.token.tag{color:#f92672}.token.boolean,.token.number{color:#ae81ff}.token.attr-name,.token.builtin,.token.char,.token.inserted,.token.selector,.token.string{color:#a6e22e}.language-css .token.string,.style .token.string,.token.entity,.token.operator,.token.url,.token.variable{color:#f8f8f2}.token.atrule,.token.attr-value,.token.class-name,.token.function{color:#e6db74}.token.keyword{color:#66d9ef}.token.important,.token.regex{color:#fd971f}.token.bold,.token.important{font-weight:700}.token.italic{font-style:italic}.token.entity{cursor:help}</style><meta name="generator" content="Gatsby 2.20.36"/><style data-styled="" data-styled-version="5.1.0">.dmeTcP{background:var(--theme-color);margin:0px;padding:0.5em 1em;color:white;}/*!sc*/
+.dmeTcP a{-webkit-text-decoration:none;text-decoration:none;color:white;}/*!sc*/
+data-styled.g1[id="Header__Wrapper-sc-1isb4n6-0"]{content:"dmeTcP,"}/*!sc*/
+.ecpyWB{background:#999;padding:1em;color:white;}/*!sc*/
+data-styled.g2[id="Footer__Wrapper-qhytvz-0"]{content:"ecpyWB,"}/*!sc*/
+.cJcvIG{background:#f4f4f4;padding:2em;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-box-pack:space-around;-webkit-justify-content:space-around;-ms-flex-pack:space-around;justify-content:space-around;-webkit-flex-wrap:wrap;-ms-flex-wrap:wrap;flex-wrap:wrap;word-wrap:break-word;}/*!sc*/
+.cJcvIG > article{width:60%;background:white;border-radius:2px;padding:1.5em;margin-bottom:1.5em;}/*!sc*/
+@media screen and (max-width:768px){.cJcvIG > article{width:100%;}}/*!sc*/
+.cJcvIG > article div:last-child img{max-width:100%;}/*!sc*/
+.cJcvIG > article div:last-child a{color:var(--theme-color);-webkit-text-decoration:none;text-decoration:none;}/*!sc*/
+.cJcvIG .frontmatter.tag{display:inline-block;background:var(--theme-color);color:white;margin:0 0.25em 0.25em 0;padding:0.25em;}/*!sc*/
+.cJcvIG .frontmatter.date{margin-top:0.5em;color:#666;}/*!sc*/
+data-styled.g4[id="post__Body-hsjs07-0"]{content:"cJcvIG,"}/*!sc*/
+</style><link as="script" rel="preload" href="/gatsby-blog-tutorial/webpack-runtime-875864f198321d4f7ff5.js"/><link as="script" rel="preload" href="/gatsby-blog-tutorial/framework-995310802c8b4a765741.js"/><link as="script" rel="preload" href="/gatsby-blog-tutorial/styles-c3197c6105318d4816ab.js"/><link as="script" rel="preload" href="/gatsby-blog-tutorial/app-39e439a958f68f704ff4.js"/><link as="script" rel="preload" href="/gatsby-blog-tutorial/291a736a4998dc6bb1e7dae6dfd245355445eafd-31b0091029cd517b9523.js"/><link as="script" rel="preload" href="/gatsby-blog-tutorial/component---src-templates-post-js-fdb08e0a613579cf49e2.js"/><link as="fetch" rel="preload" href="/gatsby-blog-tutorial/page-data/6efe7150-df6d-598a-82cc-b37090f1d0e3/page-data.json" crossorigin="anonymous"/><link as="fetch" rel="preload" href="/gatsby-blog-tutorial/page-data/app-data.json" crossorigin="anonymous"/></head><body><div id="___gatsby"><div style="outline:none" tabindex="-1" id="gatsby-focus-wrapper"><header class="Header__Wrapper-sc-1isb4n6-0 dmeTcP"><h1><a href="/gatsby-blog-tutorial/">Qiitaに書いたやつ</a></h1></header><div class="post__Body-hsjs07-0 cJcvIG"><article><h1>Flutter入門 QiitaのAPIを叩いて記事一覧を表示してみる</h1><div><span class="frontmatter tag">Android</span><span class="frontmatter tag">iOS</span><span class="frontmatter tag">Dart</span><span class="frontmatter tag">Flutter</span></div><div class="frontmatter date"><b>2019年06月04日</b></div><div><p>Flutterに入門したのですが、まだまだ日本語の記事が少ない印象です。
+とりあえず個人的チュートリアルであるQiitaのAPIの叩いて表示する奴をやってみたいと思います。</p>
+<p>ちなみに私は<a href="https://flutter.dev/docs/get-started/codelab">Write your first Flutter app</a>を程度です。
+Dartの文法からわかりません。</p>
+<img src="https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/166241/54fa0dcb-4557-583b-bb94-86caaf21248a.png" width="330"/>
+<h3>API</h3>
+<h4>Entity</h4>
+<div class="gatsby-highlight" data-language=".dart"><pre class="language-.dart"><code class="language-.dart">class User {
+  final String id;
+  final String iconUrl;
+
+  User({this.id, this.iconUrl});
+
+  factory User.fromJson(Map&lt;String, dynamic&gt; json) {
+    return User(
+      id: json[&#39;id&#39;],
+      iconUrl: json[&#39;profile_image_url&#39;],
+    );
+  }
+}</code></pre></div>
+<div class="gatsby-highlight" data-language=".dart"><pre class="language-.dart"><code class="language-.dart">class Article {
+  final String title;
+  final String url;
+  final User user;
+
+  Article({this.title, this.url, this.user});
+
+  factory Article.fromJson(Map&lt;String, dynamic&gt; json) {
+    return Article(
+      title: json[&#39;title&#39;],
+      url: json[&#39;url&#39;],
+      user: User.fromJson(json[&#39;user&#39;]),
+    );
+  }
+}</code></pre></div>
+<ul>
+<li>DartのClass
+　<a href="https://dart.dev/guides/language/language-tour#classes">https://dart.dev/guides/language/language-tour#classes</a> </li>
+<li>Factoryコンストラクタ</li>
+<li>ネストしたJSONのパース
+<a href="https://medium.com/flutter-community/parsing-complex-json-in-flutter-747c46655f51">https://medium.com/flutter-community/parsing-complex-json-in-flutter-747c46655f51</a></li>
+</ul>
+<h3>Request</h3>
+<div class="gatsby-highlight" data-language=".dart"><pre class="language-.dart"><code class="language-.dart">class QiitaClient {
+  static Future&lt;List&lt;Article&gt;&gt; fetchArticle() async {
+    final url = &#39;https://qiita.com/api/v2/items&#39;;
+    final response = await http.get(url);
+    if (response.statusCode == 200) {
+      final List&lt;dynamic&gt; jsonArray = json.decode(response.body);
+      return jsonArray.map((json) =&gt; Article.fromJson(json)).toList();
+    } else {
+      throw Exception(&#39;Failed to load article&#39;);
+    }
+  }
+}</code></pre></div>
+<p><a href="https://flutter.dev/docs/cookbook/networking/fetch-data">https://flutter.dev/docs/cookbook/networking/fetch-data</a></p>
+<p>ドキュメントのExampleとほぼ同じ感じです。
+ただAPIがJSONの配列を返してくるので、その辺がまだ自信ない。
+とりあえず動いたレベル。</p>
+<p>main関数に適当に書いてリクエストしてみます。</p>
+<div class="gatsby-highlight" data-language=".dart"><pre class="language-.dart"><code class="language-.dart">void main() {
+    QiitaClient.fetchArticle().then((articles) =&gt; {
+        articles.forEach((article) =&gt; {
+            print(article.title)
+        })
+    })
+}</code></pre></div>
+<p>VSCodeのDEBUG CONSOLEを貼っておく。</p>
+<div class="gatsby-highlight" data-language="text"><pre class="language-text"><code class="language-text">flutter: JP1を使うにあたっての基礎知識
+flutter: 知っておく価値のある珍しいHTMLタグ
+flutter: 「純粋関数型JavaScriptのつくりかた」に触発されて
+flutter: 自宅状況の見える化（M5Stack版）
+flutter: 機械学習初心者のためのおすすめ教材について（動画編）
+flutter: プログラミング歴2ヶ月の俺が超絶怒涛のアウトプットをした
+flutter: GIMPでグラデーション付きの着色をする．
+flutter: プログラミング学習記録91〜復活〜
+flutter: Live/Tv..!...djokovic vs struff EN Vivo!streaM
+flutter: 錦織圭 vs ブノワ・ペール 生放送 全仏オープン テニス
+flutter: CoreTweetを使ってTweetアプリを作ろうとしたときの備忘録</code></pre></div>
+<p>ここら辺はほぼJSのPromiseと同じなのでスラスラ書けた。</p>
+<h3>UI</h3>
+<h4>ListView</h4>
+<p><a href="https://api.flutter.dev/flutter/widgets/ListView-class.html">https://api.flutter.dev/flutter/widgets/ListView-class.html</a></p>
+<p>4種類の生成方法があるけど、UITableViewやLicyclaViewのように再利用してくれるやつは2のItemBuilderを使うやつっぽい。</p>
+<p>cookbookにexampleがある。</p>
+<p>&#x3C;img src="<a href="https://flutter.dev/images/cookbook/long-lists.gif%22">https://flutter.dev/images/cookbook/long-lists.gif"</a>, width=230,></p>
+<p><a href="https://flutter.dev/docs/cookbook/lists/long-lists">https://flutter.dev/docs/cookbook/lists/long-lists</a></p>
+<p>Flutterが用意する<a href="https://api.flutter.dev/flutter/material/ListTile-class.html">ListTile</a>を使って
+シンプルに実装しました。</p>
+<div class="gatsby-highlight" data-language=".dart"><pre class="language-.dart"><code class="language-.dart">class ArticleListView extends StatelessWidget {
+  final List&lt;Article&gt; articles;
+  ArticleListView({Key key, this.articles}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return ListView.builder(
+      itemCount: articles.length,
+      itemBuilder: (BuildContext context, int index) {
+        final article = articles[index];
+        return ListTile(
+          leading: CircleAvatar(
+            backgroundImage: NetworkImage(article.user.iconUrl),
+          ),
+          title: Text(article.title),
+        );
+      },
+    );
+  }
+}</code></pre></div>
+<p>セルのタップイベントはListTileにonTapがあるのでそこで取得できます。</p>
+<div class="gatsby-highlight" data-language=".dart"><pre class="language-.dart"><code class="language-.dart">    ListTile(
+        ... 
+        onTap: () { 
+          // 画面遷移
+        }
+    )</code></pre></div>
+<h4>WebView</h4>
+<p><a href="https://github.com/flutter/plugins/tree/master/packages/webview_flutter">https://github.com/flutter/plugins/tree/master/packages/webview_flutter</a></p>
+<p><code class="language-text">pubspec.yaml</code>に追記します。</p>
+<div class="gatsby-highlight" data-language=".yml"><pre class="language-.yml"><code class="language-.yml">dependencies:
+  flutter:
+    sdk: flutter
+  # 中略
+  webview_flutter: ^0.1.0+1</code></pre></div>
+<p>iOSの場合はInfo.plistに以下を追加する必要がある。</p>
+<div class="gatsby-highlight" data-language=".xml"><pre class="language-.xml"><code class="language-.xml">    &lt;key&gt;io.flutter.embedded_views_preview&lt;/key&gt;
+    &lt;string&gt;YES&lt;/string&gt;</code></pre></div>
+<p>Usage</p>
+<div class="gatsby-highlight" data-language=".dart"><pre class="language-.dart"><code class="language-.dart">   WebView(initialUrl: &quot;url&quot;)</code></pre></div>
+<div class="gatsby-highlight" data-language=".dart"><pre class="language-.dart"><code class="language-.dart">class ArticleDetailPage extends StatelessWidget {
+  final Article article;
+
+  ArticleDetailPage({Key key, this.article}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: Scaffold(
+        body: Center(
+          child: WebView(
+            initialUrl: article.url,
+          ),
+        ),
+      ),
+    );
+  }
+}</code></pre></div>
+<h4>画面遷移</h4>
+<div class="gatsby-highlight" data-language=".dart"><pre class="language-.dart"><code class="language-.dart">    ListTile(
+        ... 
+        onTap: () { 
+            Navigator.push(
+                context, 
+                MaterialPageRoute(builder: (context) =&gt; ArticleDetailPage(article: article)),
+            );
+        }
+    )</code></pre></div>
+<p><a href="https://flutter.dev/docs/cookbook/navigation/navigation-basics">Navigation</a></p>
+<img src="https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/166241/cd9a6112-9259-a364-8467-802bd70f36e0.png" width="280"/>
+<p>ソースコード　<a href="https://gist.github.com/churabou/6a34a0236bcf1ca69006b832cfbea789">https://gist.github.com/churabou/6a34a0236bcf1ca69006b832cfbea789</a></p>
+<h3>感想</h3>
+<p>ドキュメントがしっかりしててよかった。特につまずくこともなくスラスラと書けたと思う。
+UITableView(delegate, dataSource)やListView(adapter)、GUIでのUI開発のやり方を覚える必要がないので、
+QiitaのAPIを表示するということに限れば、ネイティブ開発より何倍も早く実装できると思う。
+urlの画像も標準で表示してくれるので凄い楽。簡単なモバイル開発には向いていると思いました。
+２日前くらいにFlutter触り始めたのに、SwiftUIの発表で一旦Flutterの学習をやめようかと思いました。
+今後Android開発をすることになったら間違いなくFlutterを使いますね。</p>
+<h3>Next</h3>
+<ul>
+<li>UIをもっと作り込みたい。iOSはListTileだと物足りない。</li>
+<li>Pull to Refresh, 無限スクロース</li>
+<li>リファクタ</li>
+</ul></div></article></div><footer class="Footer__Wrapper-qhytvz-0 ecpyWB">2020 churabou</footer></div><div id="gatsby-announcer" style="position:absolute;top:0;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0" aria-live="assertive" aria-atomic="true"></div></div><script id="gatsby-script-loader">/*<![CDATA[*/window.pagePath="/6efe7150-df6d-598a-82cc-b37090f1d0e3";/*]]>*/</script><script id="gatsby-chunk-mapping">/*<![CDATA[*/window.___chunkMapping={"app":["/app-39e439a958f68f704ff4.js"],"component---src-pages-index-js":["/component---src-pages-index-js-7fc9e6e69cd9c2fd2141.js"],"component---src-templates-post-js":["/component---src-templates-post-js-fdb08e0a613579cf49e2.js"]};/*]]>*/</script><script src="/gatsby-blog-tutorial/component---src-templates-post-js-fdb08e0a613579cf49e2.js" async=""></script><script src="/gatsby-blog-tutorial/291a736a4998dc6bb1e7dae6dfd245355445eafd-31b0091029cd517b9523.js" async=""></script><script src="/gatsby-blog-tutorial/app-39e439a958f68f704ff4.js" async=""></script><script src="/gatsby-blog-tutorial/styles-c3197c6105318d4816ab.js" async=""></script><script src="/gatsby-blog-tutorial/framework-995310802c8b4a765741.js" async=""></script><script src="/gatsby-blog-tutorial/webpack-runtime-875864f198321d4f7ff5.js" async=""></script></body></html>

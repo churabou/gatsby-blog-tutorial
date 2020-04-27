@@ -1,0 +1,220 @@
+<!DOCTYPE html><html><head><meta charSet="utf-8"/><meta http-equiv="x-ua-compatible" content="ie=edge"/><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/><style data-href="/gatsby-blog-tutorial/styles.63ad972f984b81eb4db4.css">body{margin:0;--theme-color:#2f5b83}code[class*=language-],pre[class*=language-]{color:#f8f8f2;background:none;text-shadow:0 1px rgba(0,0,0,.3);font-family:Consolas,Monaco,Andale Mono,Ubuntu Mono,monospace;font-size:1em;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;word-wrap:normal;line-height:1.5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-ms-hyphens:none;hyphens:none}pre[class*=language-]{padding:1em;margin:.5em 0;overflow:auto;border-radius:.3em}:not(pre)>code[class*=language-],pre[class*=language-]{background:#272822}:not(pre)>code[class*=language-]{padding:.1em;border-radius:.3em;white-space:normal}.token.cdata,.token.comment,.token.doctype,.token.prolog{color:#708090}.token.punctuation{color:#f8f8f2}.token.namespace{opacity:.7}.token.constant,.token.deleted,.token.property,.token.symbol,.token.tag{color:#f92672}.token.boolean,.token.number{color:#ae81ff}.token.attr-name,.token.builtin,.token.char,.token.inserted,.token.selector,.token.string{color:#a6e22e}.language-css .token.string,.style .token.string,.token.entity,.token.operator,.token.url,.token.variable{color:#f8f8f2}.token.atrule,.token.attr-value,.token.class-name,.token.function{color:#e6db74}.token.keyword{color:#66d9ef}.token.important,.token.regex{color:#fd971f}.token.bold,.token.important{font-weight:700}.token.italic{font-style:italic}.token.entity{cursor:help}</style><meta name="generator" content="Gatsby 2.20.36"/><style data-styled="" data-styled-version="5.1.0">.dmeTcP{background:var(--theme-color);margin:0px;padding:0.5em 1em;color:white;}/*!sc*/
+.dmeTcP a{-webkit-text-decoration:none;text-decoration:none;color:white;}/*!sc*/
+data-styled.g1[id="Header__Wrapper-sc-1isb4n6-0"]{content:"dmeTcP,"}/*!sc*/
+.ecpyWB{background:#999;padding:1em;color:white;}/*!sc*/
+data-styled.g2[id="Footer__Wrapper-qhytvz-0"]{content:"ecpyWB,"}/*!sc*/
+.cJcvIG{background:#f4f4f4;padding:2em;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-box-pack:space-around;-webkit-justify-content:space-around;-ms-flex-pack:space-around;justify-content:space-around;-webkit-flex-wrap:wrap;-ms-flex-wrap:wrap;flex-wrap:wrap;word-wrap:break-word;}/*!sc*/
+.cJcvIG > article{width:60%;background:white;border-radius:2px;padding:1.5em;margin-bottom:1.5em;}/*!sc*/
+@media screen and (max-width:768px){.cJcvIG > article{width:100%;}}/*!sc*/
+.cJcvIG > article div:last-child img{max-width:100%;}/*!sc*/
+.cJcvIG > article div:last-child a{color:var(--theme-color);-webkit-text-decoration:none;text-decoration:none;}/*!sc*/
+.cJcvIG .frontmatter.tag{display:inline-block;background:var(--theme-color);color:white;margin:0 0.25em 0.25em 0;padding:0.25em;}/*!sc*/
+.cJcvIG .frontmatter.date{margin-top:0.5em;color:#666;}/*!sc*/
+data-styled.g4[id="post__Body-hsjs07-0"]{content:"cJcvIG,"}/*!sc*/
+</style><link as="script" rel="preload" href="/gatsby-blog-tutorial/webpack-runtime-875864f198321d4f7ff5.js"/><link as="script" rel="preload" href="/gatsby-blog-tutorial/framework-995310802c8b4a765741.js"/><link as="script" rel="preload" href="/gatsby-blog-tutorial/styles-c3197c6105318d4816ab.js"/><link as="script" rel="preload" href="/gatsby-blog-tutorial/app-39e439a958f68f704ff4.js"/><link as="script" rel="preload" href="/gatsby-blog-tutorial/291a736a4998dc6bb1e7dae6dfd245355445eafd-31b0091029cd517b9523.js"/><link as="script" rel="preload" href="/gatsby-blog-tutorial/component---src-templates-post-js-fdb08e0a613579cf49e2.js"/><link as="fetch" rel="preload" href="/gatsby-blog-tutorial/page-data/bd0b4c1d-c91b-5dd7-b7e2-2b9f743943ea/page-data.json" crossorigin="anonymous"/><link as="fetch" rel="preload" href="/gatsby-blog-tutorial/page-data/app-data.json" crossorigin="anonymous"/></head><body><div id="___gatsby"><div style="outline:none" tabindex="-1" id="gatsby-focus-wrapper"><header class="Header__Wrapper-sc-1isb4n6-0 dmeTcP"><h1><a href="/gatsby-blog-tutorial/">Qiitaに書いたやつ</a></h1></header><div class="post__Body-hsjs07-0 cJcvIG"><article><h1>Socket.ioを使って15分でリアルタイムチャットを実装する</h1><div><span class="frontmatter tag">JavaScript</span><span class="frontmatter tag">Socket.io</span><span class="frontmatter tag">ECMAScript</span><span class="frontmatter tag">websocket</span></div><div class="frontmatter date"><b>2019年04月08日</b></div><div><p>Socket.ioのチュートリアルをやったのをまとめました。15分もあればsocket.ioを試すことができます。JavaScriptのコードは20行くらいです。</p>
+<p>今回は公式のチュートリアルに沿ってリアルタイムチャット機能の実装を試してみました。
+ES6で追加されたアロー関数やconstを使ったりjQueryを使わないで実装をしました。</p>
+<p>完成図</p>
+<p><img src="https://qiita-image-store.s3.amazonaws.com/0/166241/6ec2ef9f-df5b-3f55-e6d8-61a843f598ea.gif" alt="qiita.gif"></p>
+<h1>Socket.ioに Get Start</h1>
+<ul>
+<li><a href="https://socket.io/get-started/chat/">https://socket.io/get-started/chat/</a></li>
+</ul>
+<p>公式をみてみると</p>
+<blockquote>
+<p>It requires almost no basic prior knowledge of Node.JS or Socket.IO, so it’s ideal for users of all knowledge levels</p>
+</blockquote>
+<p>このチュートリアルは事前知識が全然なくてもできると書いてある(多分)ので初心者でも安心できる。</p>
+<div class="gatsby-highlight" data-language="text"><pre class="language-text"><code class="language-text">mkdir chat-example
+cd chat-example</code></pre></div>
+<p>以下のようにpackage.jsonを作成する。</p>
+<div class="gatsby-highlight" data-language="chat-example/package.json"><pre class="language-chat-example/package.json"><code class="language-chat-example/package.json"> { 
+    &quot;name&quot;: &quot;socket-chat-example&quot;, 
+    &quot;version&quot;: &quot;0.0.1&quot;,
+    &quot;description&quot;: &quot;my first socket.io app&quot;,
+    &quot;dependencies&quot;: {}
+}</code></pre></div>
+<h2>expressでwebサーバーをたてる</h2>
+<div class="gatsby-highlight" data-language="text"><pre class="language-text"><code class="language-text">npm install --save express@4.15.2</code></pre></div>
+<div class="gatsby-highlight" data-language="index.js"><pre class="language-index.js"><code class="language-index.js">const app = require(&#39;express&#39;)();
+const http = require(&#39;http&#39;).Server(app);
+
+app.get(&#39;/&#39;, function(req, res){
+  res.send(&#39;&lt;h1&gt;Hello world&lt;/h1&gt;&#39;);
+});
+
+http.listen(3000, function(){
+  console.log(&#39;listening on *:3000&#39;);
+});</code></pre></div>
+<div class="gatsby-highlight" data-language="text"><pre class="language-text"><code class="language-text">node index.js</code></pre></div>
+<p><a href="http://localhost:3000/">http://localhost:3000/</a> にアクセスするとHelloWorldが表示される</p>
+<p><a href="https://socket.io/get-started/chat/#The-web-framework">The-web-framework</a></p>
+<h2>チャットアプリの雛形を表示してみる</h2>
+<p>res.sendでHTMLの文字列を渡していたけど、<code class="language-text">sendFile</code>メソッドを使うことでhtmlファイルを提供できる。</p>
+<div class="gatsby-highlight" data-language="index.js"><pre class="language-index.js"><code class="language-index.js">const app = require(&#39;express&#39;)();
+const http = require(&#39;http&#39;).Server(app);
+
+app.get(&#39;/&#39;, function(req, res){
+  res.sendFile(__dirname + &#39;/index.html&#39;); //　HTMLファイルを使う
+});
+
+http.listen(3000, function(){
+  console.log(&#39;listening on *:3000&#39;);
+});</code></pre></div>
+<p>今回のチャットアプリのためのHTMLファイル</p>
+<div class="gatsby-highlight" data-language="index.html"><pre class="language-index.html"><code class="language-index.html">&lt;!doctype html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt;Socket.IO chat&lt;/title&gt;
+    &lt;style&gt;
+     * { margin: 0; padding: 0; box-sizing: border-box; }
+     body { font: 13px Helvetica, Arial; }
+     form { background: #21bace; padding: 6px; position: fixed; bottom: 0; width: 100%; }
+     form input { border: 0; padding: 10px; width: 90%; margin-right: 1%; border-radius: 3px;}
+     form button { width: 9%; background: white; border: none; padding: 10px; border-radius: 3px; }
+     #messages { list-style-type: none; margin: 0; padding: 0; }
+     #messages li { font-size: 16px; padding: 10px 15px; }
+     #messages li:nth-child(odd) { background: #eee; }
+    &lt;/style&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;ul id=&quot;messages&quot;&gt;&lt;/ul&gt;
+    &lt;form id=&quot;form&quot;&gt;
+      &lt;input id=&quot;messageField&quot; autocomplete=&quot;off&quot; /&gt;&lt;button&gt;Send&lt;/button&gt;
+    &lt;/form&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</code></pre></div>
+<p><a href="http://localhost:3000/">http://localhost:3000/</a> にアクセスするとhtmlファイルが表示されているのがわかる。</p>
+<h2>Socket.ioをインストールする</h2>
+<div class="gatsby-highlight" data-language="text"><pre class="language-text"><code class="language-text">npm install --save socket.io</code></pre></div>
+<div class="gatsby-highlight" data-language="index.js"><pre class="language-index.js"><code class="language-index.js">const app = require(&#39;express&#39;)();
+const http = require(&#39;http&#39;).Server(app);
+const io = require(&#39;socket.io&#39;)(http);
+
+app.get(&#39;/&#39;, function(req, res){
+  res.sendFile(__dirname + &#39;/index.html&#39;);
+});
+
+io.on(&#39;connection&#39;, (socket) =&gt; {
+  console.log(&#39;a user connected&#39;);
+});
+
+http.listen(3000);</code></pre></div>
+<p>bodyタグの閉じタグの前に以下を追加する</p>
+<div class="gatsby-highlight" data-language="index.html"><pre class="language-index.html"><code class="language-index.html">&lt;script src=&quot;/socket.io/socket.io.js&quot;&gt;&lt;/script&gt;
+ &lt;script&gt;
+   const socket = io();
+&lt;/script&gt;</code></pre></div>
+<p><a href="http://localhost:3000/">http://localhost:3000/</a> にアクセスするとコンソールに出力される
+別タブで開いても表示される。</p>
+<div class="gatsby-highlight" data-language="text"><pre class="language-text"><code class="language-text">[xxx:chat-example xxx$ node index.js
+a user connected
+a user connected
+a user connected
+a user connected</code></pre></div>
+<h2>イベントを送信してみる</h2>
+<p>emitメソッドを使ってプラウザ側からイベントを送る</p>
+<div class="gatsby-highlight" data-language="index.html"><pre class="language-index.html"><code class="language-index.html">&lt;script src=&quot;/socket.io/socket.io.js&quot;&gt;&lt;/script&gt;
+ &lt;script&gt;
+      document.getElementById(&#39;form&#39;).addEventListener(&#39;submit&#39;, (e) =&gt; {
+        e.preventDefault(); // prevents page reloading
+        const messageField = document.getElementById(&#39;messageField&#39;);
+        socket.emit(&#39;chat message&#39;, messageField.value);
+      });
+&lt;/script&gt;</code></pre></div>
+<p>サーバ側でイベントを受診する</p>
+<div class="gatsby-highlight" data-language="index.js"><pre class="language-index.js"><code class="language-index.js">io.on(&#39;connection&#39;, (socket) =&gt; {
+  socket.on(&#39;chat message&#39;, (msg) =&gt; {
+    console.log(msg);
+  });
+});</code></pre></div>
+<p>文字を入力して送信ボタンを押すと、コンソールに入力した文字が出力され、プラウザーサーバー間でのイベントの送受信が正常に行われていることが確認できる。</p>
+<p><a href="https://socket.io/get-started/chat/#Emitting-events">Emitting-events</a></p>
+<h2>イベントを配信する</h2>
+<p>あるプラウザからイベントを受診した接続されている全てのプラウザ(ユーザー)に向けてイベントを送信します。</p>
+<div class="gatsby-highlight" data-language="index.js"><pre class="language-index.js"><code class="language-index.js">io.on(&#39;connection&#39;, (socket) =&gt; {
+  socket.on(&#39;chat message&#39;, (msg) =&gt; {
+    io.emit(&#39;chat message&#39;, msg);
+  });
+});</code></pre></div>
+<p>プラウザ側でイベントを購読する。</p>
+<div class="gatsby-highlight" data-language="index.html"><pre class="language-index.html"><code class="language-index.html">&lt;html&gt;
+ &lt;body&gt;
+   &lt;h1&gt;serve HTML file&lt;/h1&gt;
+   &lt;script src=&quot;/socket.io/socket.io.js&quot;&gt;&lt;/script&gt;
+   &lt;script&gt;
+     const socket = io();
+
+     document.getElementById(&#39;form&#39;).addEventListener(&#39;submit&#39;, (e) =&gt; {
+       e.preventDefault(); // prevents page reloading
+       const messageField = document.getElementById(&#39;messageField&#39;);
+       socket.emit(&#39;chat message&#39;, messageField.value);
+       messageField.value = &#39;&#39;;
+     });
+
+     socket.on(&#39;chat message&#39;, function(msg){
+       const item = document.createElement(&#39;li&#39;)
+       item.innerText = msg;
+       document.getElementById(&#39;messages&#39;).appendChild(item);
+     });
+   &lt;/script&gt;
+ &lt;body&gt;
+&lt;/html&gt;</code></pre></div>
+<p><a href="https://socket.io/get-started/chat/#Broadcasting">Broadcasting</a></p>
+<h2>Socket.ioを使ったチャットアプリのソースコード</h2>
+<div class="gatsby-highlight" data-language="index.js"><pre class="language-index.js"><code class="language-index.js">const app = require(&#39;express&#39;)();
+const http = require(&#39;http&#39;).Server(app);
+const io = require(&#39;socket.io&#39;)(http);
+
+app.get(&#39;/&#39;, function(req, res){
+  res.sendFile(__dirname + &#39;/index.html&#39;);
+});
+
+io.on(&#39;connection&#39;, (socket) =&gt; {
+  socket.on(&#39;chat message&#39;, (msg) =&gt; {
+    io.emit(&#39;chat message&#39;, msg);
+  });
+});
+
+http.listen(3000);</code></pre></div>
+<div class="gatsby-highlight" data-language="index.html"><pre class="language-index.html"><code class="language-index.html">&lt;!doctype html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt;Socket.IO chat&lt;/title&gt;
+    &lt;style&gt;
+     * { margin: 0; padding: 0; box-sizing: border-box; }
+     body { font: 13px Helvetica, Arial; }
+     form { background: #21bace; padding: 6px; position: fixed; bottom: 0; width: 100%; }
+     form input { border: 0; padding: 10px; width: 90%; margin-right: 1%; border-radius: 3px;}
+     form button { width: 9%; background: white; border: none; padding: 10px; border-radius: 3px; }
+     #messages { list-style-type: none; margin: 0; padding: 0; }
+     #messages li { font-size: 16px; padding: 10px 15px; }
+     #messages li:nth-child(odd) { background: #eee; }
+    &lt;/style&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;ul id=&quot;messages&quot;&gt;&lt;/ul&gt;
+    &lt;form id=&quot;form&quot;&gt;
+      &lt;input id=&quot;messageField&quot; autocomplete=&quot;off&quot; /&gt;&lt;button&gt;Send&lt;/button&gt;
+    &lt;/form&gt;
+    &lt;script src=&quot;/socket.io/socket.io.js&quot;&gt;&lt;/script&gt;
+    &lt;script&gt;
+      const socket = io();
+
+      document.getElementById(&#39;form&#39;).addEventListener(&#39;submit&#39;, (e) =&gt; {
+        e.preventDefault(); // prevents page reloading
+        const messageField = document.getElementById(&#39;messageField&#39;);
+        socket.emit(&#39;chat message&#39;, messageField.value);
+        messageField.value = &#39;&#39;;
+      });
+
+      socket.on(&#39;chat message&#39;, function(msg){
+        const item = document.createElement(&#39;li&#39;)
+        item.innerText = msg;
+        document.getElementById(&#39;messages&#39;).appendChild(item);
+      });
+    &lt;/script&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</code></pre></div>
+<h1>Socketを使ってみた感想</h1>
+<p>この程度のリアルタイムチャット機能を実装するのにJavaScrpt20行程度で済むのは正直驚きました。</p></div></article></div><footer class="Footer__Wrapper-qhytvz-0 ecpyWB">2020 churabou</footer></div><div id="gatsby-announcer" style="position:absolute;top:0;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0" aria-live="assertive" aria-atomic="true"></div></div><script id="gatsby-script-loader">/*<![CDATA[*/window.pagePath="/bd0b4c1d-c91b-5dd7-b7e2-2b9f743943ea";/*]]>*/</script><script id="gatsby-chunk-mapping">/*<![CDATA[*/window.___chunkMapping={"app":["/app-39e439a958f68f704ff4.js"],"component---src-pages-index-js":["/component---src-pages-index-js-7fc9e6e69cd9c2fd2141.js"],"component---src-templates-post-js":["/component---src-templates-post-js-fdb08e0a613579cf49e2.js"]};/*]]>*/</script><script src="/gatsby-blog-tutorial/component---src-templates-post-js-fdb08e0a613579cf49e2.js" async=""></script><script src="/gatsby-blog-tutorial/291a736a4998dc6bb1e7dae6dfd245355445eafd-31b0091029cd517b9523.js" async=""></script><script src="/gatsby-blog-tutorial/app-39e439a958f68f704ff4.js" async=""></script><script src="/gatsby-blog-tutorial/styles-c3197c6105318d4816ab.js" async=""></script><script src="/gatsby-blog-tutorial/framework-995310802c8b4a765741.js" async=""></script><script src="/gatsby-blog-tutorial/webpack-runtime-875864f198321d4f7ff5.js" async=""></script></body></html>

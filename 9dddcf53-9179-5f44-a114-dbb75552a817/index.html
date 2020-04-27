@@ -1,0 +1,246 @@
+<!DOCTYPE html><html><head><meta charSet="utf-8"/><meta http-equiv="x-ua-compatible" content="ie=edge"/><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/><style data-href="/gatsby-blog-tutorial/styles.63ad972f984b81eb4db4.css">body{margin:0;--theme-color:#2f5b83}code[class*=language-],pre[class*=language-]{color:#f8f8f2;background:none;text-shadow:0 1px rgba(0,0,0,.3);font-family:Consolas,Monaco,Andale Mono,Ubuntu Mono,monospace;font-size:1em;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;word-wrap:normal;line-height:1.5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-ms-hyphens:none;hyphens:none}pre[class*=language-]{padding:1em;margin:.5em 0;overflow:auto;border-radius:.3em}:not(pre)>code[class*=language-],pre[class*=language-]{background:#272822}:not(pre)>code[class*=language-]{padding:.1em;border-radius:.3em;white-space:normal}.token.cdata,.token.comment,.token.doctype,.token.prolog{color:#708090}.token.punctuation{color:#f8f8f2}.token.namespace{opacity:.7}.token.constant,.token.deleted,.token.property,.token.symbol,.token.tag{color:#f92672}.token.boolean,.token.number{color:#ae81ff}.token.attr-name,.token.builtin,.token.char,.token.inserted,.token.selector,.token.string{color:#a6e22e}.language-css .token.string,.style .token.string,.token.entity,.token.operator,.token.url,.token.variable{color:#f8f8f2}.token.atrule,.token.attr-value,.token.class-name,.token.function{color:#e6db74}.token.keyword{color:#66d9ef}.token.important,.token.regex{color:#fd971f}.token.bold,.token.important{font-weight:700}.token.italic{font-style:italic}.token.entity{cursor:help}</style><meta name="generator" content="Gatsby 2.20.36"/><style data-styled="" data-styled-version="5.1.0">.dmeTcP{background:var(--theme-color);margin:0px;padding:0.5em 1em;color:white;}/*!sc*/
+.dmeTcP a{-webkit-text-decoration:none;text-decoration:none;color:white;}/*!sc*/
+data-styled.g1[id="Header__Wrapper-sc-1isb4n6-0"]{content:"dmeTcP,"}/*!sc*/
+.ecpyWB{background:#999;padding:1em;color:white;}/*!sc*/
+data-styled.g2[id="Footer__Wrapper-qhytvz-0"]{content:"ecpyWB,"}/*!sc*/
+.cJcvIG{background:#f4f4f4;padding:2em;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-box-pack:space-around;-webkit-justify-content:space-around;-ms-flex-pack:space-around;justify-content:space-around;-webkit-flex-wrap:wrap;-ms-flex-wrap:wrap;flex-wrap:wrap;word-wrap:break-word;}/*!sc*/
+.cJcvIG > article{width:60%;background:white;border-radius:2px;padding:1.5em;margin-bottom:1.5em;}/*!sc*/
+@media screen and (max-width:768px){.cJcvIG > article{width:100%;}}/*!sc*/
+.cJcvIG > article div:last-child img{max-width:100%;}/*!sc*/
+.cJcvIG > article div:last-child a{color:var(--theme-color);-webkit-text-decoration:none;text-decoration:none;}/*!sc*/
+.cJcvIG .frontmatter.tag{display:inline-block;background:var(--theme-color);color:white;margin:0 0.25em 0.25em 0;padding:0.25em;}/*!sc*/
+.cJcvIG .frontmatter.date{margin-top:0.5em;color:#666;}/*!sc*/
+data-styled.g4[id="post__Body-hsjs07-0"]{content:"cJcvIG,"}/*!sc*/
+</style><link as="script" rel="preload" href="/gatsby-blog-tutorial/webpack-runtime-875864f198321d4f7ff5.js"/><link as="script" rel="preload" href="/gatsby-blog-tutorial/framework-995310802c8b4a765741.js"/><link as="script" rel="preload" href="/gatsby-blog-tutorial/styles-c3197c6105318d4816ab.js"/><link as="script" rel="preload" href="/gatsby-blog-tutorial/app-39e439a958f68f704ff4.js"/><link as="script" rel="preload" href="/gatsby-blog-tutorial/291a736a4998dc6bb1e7dae6dfd245355445eafd-31b0091029cd517b9523.js"/><link as="script" rel="preload" href="/gatsby-blog-tutorial/component---src-templates-post-js-fdb08e0a613579cf49e2.js"/><link as="fetch" rel="preload" href="/gatsby-blog-tutorial/page-data/9dddcf53-9179-5f44-a114-dbb75552a817/page-data.json" crossorigin="anonymous"/><link as="fetch" rel="preload" href="/gatsby-blog-tutorial/page-data/app-data.json" crossorigin="anonymous"/></head><body><div id="___gatsby"><div style="outline:none" tabindex="-1" id="gatsby-focus-wrapper"><header class="Header__Wrapper-sc-1isb4n6-0 dmeTcP"><h1><a href="/gatsby-blog-tutorial/">Qiitaに書いたやつ</a></h1></header><div class="post__Body-hsjs07-0 cJcvIG"><article><h1>Swiftでカレンダーを作る</h1><div><span class="frontmatter tag">Xcode</span><span class="frontmatter tag">iOS</span><span class="frontmatter tag">Swift</span></div><div class="frontmatter date"><b>2019年04月28日</b></div><div><p>今更カレンダーなんて作りたくなかったけど、ライブラリ使いたくないし意外とコードが落ちてなくて
+<a href="https://qiita.com/sakuran/items/3c2c9f22cbcbf4aff731">こちら</a>の記事を参考にしたが結構めちゃくちゃだったので。
+自分のように最小限コピペで動かせるものが欲しい人もいると思うので共有します。</p>
+<p><img src="https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/166241/436be5eb-90a3-e5f1-ee0a-ffc2269555d9.gif" alt="file.gif"></p>
+<p><a href="https://github.com/churabou/SwiftCalendar">https://github.com/churabou/SwiftCalendar</a></p>
+<h3>Extension</h3>
+<p>日付と色のextensionです。</p>
+<div class="gatsby-highlight" data-language="ex.swift"><pre class="language-ex.swift"><code class="language-ex.swift">extension UIColor {
+    class var lightBlue: UIColor {
+        return UIColor(red: 92.0 / 255, green: 192.0 / 255, blue: 210.0 / 255, alpha: 1.0)
+    }
+    
+    class var lightRed: UIColor {
+        return UIColor(red: 195.0 / 255, green: 123.0 / 255, blue: 175.0 / 255, alpha: 1.0)
+    }
+}
+
+
+extension Date {
+    func string(format: String) -&gt; String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = format
+        return formatter.string(from: self)
+    }
+}</code></pre></div>
+<h3>MonthDateManager</h3>
+<div class="gatsby-highlight" data-language="monthdatemanager.swift"><pre class="language-monthdatemanager.swift"><code class="language-monthdatemanager.swift">import Foundation
+
+final class MonthDateManager {
+    
+    private let calendar = Calendar.current
+    private (set) var days: [Date] = []
+    private var firstDate: Date! {
+        didSet {
+           days = createDaysForMonth()
+        }
+    }
+    
+    var monthString: String {
+        return firstDate.string(format: &quot;YYYY/MM&quot;)
+    }
+    
+    init() {
+        var component = calendar.dateComponents([.year, .month], from: Date())
+        component.day = 1
+        firstDate = calendar.date(from: component)
+        days = createDaysForMonth()
+    }
+    
+    func createDaysForMonth() -&gt; [Date] {
+        // 月の初日の曜日
+        let dayOfTheWeek = calendar.component(.weekday, from: firstDate) - 1
+        // 月の日数
+        let numberOfWeeks = calendar.range(of: .weekOfMonth, in: .month, for: firstDate)!.count
+        // その月に表示する日数
+        let numberOfItems = numberOfWeeks * 7 
+
+        return (0..&lt;numberOfItems).map { i in
+            var dateComponents = DateComponents()
+            dateComponents.day = i - dayOfTheWeek
+            return calendar.date(byAdding: dateComponents, to: firstDate)!
+        }
+    }
+    
+    func nextMonth() {
+        firstDate = calendar.date(byAdding: .month, value: 1, to: firstDate)
+    }
+    
+    func prevMonth() {
+        firstDate = calendar.date(byAdding: .month, value: -1, to: firstDate)
+    }
+}</code></pre></div>
+<h3>CalendarCell</h3>
+<p>セルはラベルだけです。
+土曜日は青くするといった要件はモデルの初期化に打ち込みます。</p>
+<div class="gatsby-highlight" data-language="calendercell.swift"><pre class="language-calendercell.swift"><code class="language-calendercell.swift">import UIKit
+
+final class CalendarCell: UICollectionViewCell {
+    
+    private var label: UILabel = {
+        let it = UILabel()
+        it.textAlignment = .center
+        it.translatesAutoresizingMaskIntoConstraints = false
+        return it
+    }()
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        contentView.addSubview(label)
+        
+        NSLayoutConstraint.activate([
+            label.topAnchor.constraint(equalTo: contentView.topAnchor),
+            label.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
+            label.leftAnchor.constraint(equalTo: contentView.leftAnchor),
+            label.rightAnchor.constraint(equalTo: contentView.rightAnchor),
+            ])
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError(&quot;init(coder:) has not been implemented&quot;)
+    }
+    
+    func configure(model: Model) {
+         label.text = model.text
+         label.textColor = model.textColor
+    }
+}
+
+
+extension CalendarCell {
+
+    struct Model {
+        var text: String = &quot;&quot;
+        var textColor: UIColor = .black
+    }
+}
+
+extension CalendarCell.Model {
+    
+    init(date: Date) {
+        let weekday = Calendar.current.component(.weekday, from: date)
+        if weekday == 1 {
+            textColor = .lightRed
+        } else if weekday == 7 {
+            textColor = .lightBlue
+        } else {
+            textColor = .gray
+        }
+        text = date.string(format: &quot;d&quot;)
+    }
+}</code></pre></div>
+<h3>ViewController</h3>
+<div class="gatsby-highlight" data-language="viewcontroller.swift"><pre class="language-viewcontroller.swift"><code class="language-viewcontroller.swift">final class ViewController: UIViewController {
+    
+    private let dateManager = MonthDateManager()
+    private let weeks = [&quot;日&quot;,&quot;月&quot;, &quot;火&quot;, &quot;水&quot;, &quot;木&quot;, &quot;金&quot;, &quot;土&quot;]
+    private let itemSize: CGFloat = (UIScreen.main.bounds.width - 60) / 7
+    
+    private lazy var calenderCollectionView: UICollectionView = {
+        let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .vertical
+        layout.minimumLineSpacing = 10
+        layout.minimumInteritemSpacing = 10
+        layout.itemSize = CGSize(width: itemSize, height: 50)
+        let collectionView = UICollectionView(frame: self.view.frame, collectionViewLayout: layout)
+        collectionView.backgroundColor = .white
+        collectionView.register(CalendarCell.self, forCellWithReuseIdentifier: &quot;cell&quot;)
+        collectionView.delegate = self
+        collectionView.dataSource = self
+        return collectionView
+    }()
+    
+    private func setUpNavigationBar() {
+        navigationController?.navigationBar.barTintColor = UIColor(red: 255/255, green: 132/255, blue: 214/255, alpha: 1)
+        navigationController?.navigationBar.tintColor = .white
+        navigationController?.navigationBar.titleTextAttributes = [.foregroundColor : UIColor.white]
+        
+        navigationItem.rightBarButtonItem = UIBarButtonItem(
+            title: &quot;next&quot;,
+            style: .plain,
+            target: self,
+            action: #selector(actionNext)
+        )
+        
+        navigationItem.leftBarButtonItem = UIBarButtonItem(
+            title: &quot;back&quot;,
+            style: .plain,
+            target: self,
+            action: #selector(actionBack)
+        )
+        title = dateManager.monthString
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        view.backgroundColor = .white
+        calenderCollectionView.frame.size.width = view.bounds.width
+        calenderCollectionView.frame.size.height = 500
+        view.addSubview(calenderCollectionView)
+        setUpNavigationBar()
+    }
+    
+    @objc private func actionNext() {
+        dateManager.nextMonth()
+        calenderCollectionView.reloadData()
+        title = dateManager.monthString
+    }
+    
+    @objc private func actionBack() {
+        dateManager.prevMonth()
+        calenderCollectionView.reloadData()
+        title = dateManager.monthString
+    }
+}
+
+extension ViewController: UICollectionViewDataSource {
+    
+    func numberOfSections(in collectionView: UICollectionView) -&gt; Int {
+        return 2
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -&gt; Int {
+        return section == 0 ? weeks.count : dateManager.days.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -&gt; UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: &quot;cell&quot;, for: indexPath) as! CalendarCell
+        if indexPath.section == 0 {
+            let day = weeks[indexPath.row]
+            let model = CalendarCell.Model(text: day, textColor: .black)
+            cell.configure(model: model)
+        } else {
+            let date = dateManager.days[indexPath.row]
+            cell.configure(model: CalendarCell.Model(date: date))
+        }
+        return cell
+    }
+}
+
+extension ViewController: UICollectionViewDelegate {
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if indexPath.section == 0 {
+            return
+        }
+        title = dateManager.days[indexPath.row].string(format: &quot;YYYY/MM/dd&quot;)
+    }
+}</code></pre></div>
+<p><img src="https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/166241/eda15263-65fe-8e7e-8869-cb714f5253ba.gif" alt="file.gif"></p>
+<p>今回は参考元の記事を尊重したコードを公開しましたが
+実際には前月の日付は表示したくない、スクロールしたいとかいった要望があると思います。</p>
+<p>にしても今更カレンダーなんて作りたくなかった。
+素直にライブラリ使えばよかった。</p></div></article></div><footer class="Footer__Wrapper-qhytvz-0 ecpyWB">2020 churabou</footer></div><div id="gatsby-announcer" style="position:absolute;top:0;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0" aria-live="assertive" aria-atomic="true"></div></div><script id="gatsby-script-loader">/*<![CDATA[*/window.pagePath="/9dddcf53-9179-5f44-a114-dbb75552a817";/*]]>*/</script><script id="gatsby-chunk-mapping">/*<![CDATA[*/window.___chunkMapping={"app":["/app-39e439a958f68f704ff4.js"],"component---src-pages-index-js":["/component---src-pages-index-js-7fc9e6e69cd9c2fd2141.js"],"component---src-templates-post-js":["/component---src-templates-post-js-fdb08e0a613579cf49e2.js"]};/*]]>*/</script><script src="/gatsby-blog-tutorial/component---src-templates-post-js-fdb08e0a613579cf49e2.js" async=""></script><script src="/gatsby-blog-tutorial/291a736a4998dc6bb1e7dae6dfd245355445eafd-31b0091029cd517b9523.js" async=""></script><script src="/gatsby-blog-tutorial/app-39e439a958f68f704ff4.js" async=""></script><script src="/gatsby-blog-tutorial/styles-c3197c6105318d4816ab.js" async=""></script><script src="/gatsby-blog-tutorial/framework-995310802c8b4a765741.js" async=""></script><script src="/gatsby-blog-tutorial/webpack-runtime-875864f198321d4f7ff5.js" async=""></script></body></html>

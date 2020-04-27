@@ -1,0 +1,77 @@
+<!DOCTYPE html><html><head><meta charSet="utf-8"/><meta http-equiv="x-ua-compatible" content="ie=edge"/><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/><style data-href="/gatsby-blog-tutorial/styles.63ad972f984b81eb4db4.css">body{margin:0;--theme-color:#2f5b83}code[class*=language-],pre[class*=language-]{color:#f8f8f2;background:none;text-shadow:0 1px rgba(0,0,0,.3);font-family:Consolas,Monaco,Andale Mono,Ubuntu Mono,monospace;font-size:1em;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;word-wrap:normal;line-height:1.5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-ms-hyphens:none;hyphens:none}pre[class*=language-]{padding:1em;margin:.5em 0;overflow:auto;border-radius:.3em}:not(pre)>code[class*=language-],pre[class*=language-]{background:#272822}:not(pre)>code[class*=language-]{padding:.1em;border-radius:.3em;white-space:normal}.token.cdata,.token.comment,.token.doctype,.token.prolog{color:#708090}.token.punctuation{color:#f8f8f2}.token.namespace{opacity:.7}.token.constant,.token.deleted,.token.property,.token.symbol,.token.tag{color:#f92672}.token.boolean,.token.number{color:#ae81ff}.token.attr-name,.token.builtin,.token.char,.token.inserted,.token.selector,.token.string{color:#a6e22e}.language-css .token.string,.style .token.string,.token.entity,.token.operator,.token.url,.token.variable{color:#f8f8f2}.token.atrule,.token.attr-value,.token.class-name,.token.function{color:#e6db74}.token.keyword{color:#66d9ef}.token.important,.token.regex{color:#fd971f}.token.bold,.token.important{font-weight:700}.token.italic{font-style:italic}.token.entity{cursor:help}</style><meta name="generator" content="Gatsby 2.20.36"/><style data-styled="" data-styled-version="5.1.0">.dmeTcP{background:var(--theme-color);margin:0px;padding:0.5em 1em;color:white;}/*!sc*/
+.dmeTcP a{-webkit-text-decoration:none;text-decoration:none;color:white;}/*!sc*/
+data-styled.g1[id="Header__Wrapper-sc-1isb4n6-0"]{content:"dmeTcP,"}/*!sc*/
+.ecpyWB{background:#999;padding:1em;color:white;}/*!sc*/
+data-styled.g2[id="Footer__Wrapper-qhytvz-0"]{content:"ecpyWB,"}/*!sc*/
+.cJcvIG{background:#f4f4f4;padding:2em;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-box-pack:space-around;-webkit-justify-content:space-around;-ms-flex-pack:space-around;justify-content:space-around;-webkit-flex-wrap:wrap;-ms-flex-wrap:wrap;flex-wrap:wrap;word-wrap:break-word;}/*!sc*/
+.cJcvIG > article{width:60%;background:white;border-radius:2px;padding:1.5em;margin-bottom:1.5em;}/*!sc*/
+@media screen and (max-width:768px){.cJcvIG > article{width:100%;}}/*!sc*/
+.cJcvIG > article div:last-child img{max-width:100%;}/*!sc*/
+.cJcvIG > article div:last-child a{color:var(--theme-color);-webkit-text-decoration:none;text-decoration:none;}/*!sc*/
+.cJcvIG .frontmatter.tag{display:inline-block;background:var(--theme-color);color:white;margin:0 0.25em 0.25em 0;padding:0.25em;}/*!sc*/
+.cJcvIG .frontmatter.date{margin-top:0.5em;color:#666;}/*!sc*/
+data-styled.g4[id="post__Body-hsjs07-0"]{content:"cJcvIG,"}/*!sc*/
+</style><link as="script" rel="preload" href="/gatsby-blog-tutorial/webpack-runtime-875864f198321d4f7ff5.js"/><link as="script" rel="preload" href="/gatsby-blog-tutorial/framework-995310802c8b4a765741.js"/><link as="script" rel="preload" href="/gatsby-blog-tutorial/styles-c3197c6105318d4816ab.js"/><link as="script" rel="preload" href="/gatsby-blog-tutorial/app-39e439a958f68f704ff4.js"/><link as="script" rel="preload" href="/gatsby-blog-tutorial/291a736a4998dc6bb1e7dae6dfd245355445eafd-31b0091029cd517b9523.js"/><link as="script" rel="preload" href="/gatsby-blog-tutorial/component---src-templates-post-js-fdb08e0a613579cf49e2.js"/><link as="fetch" rel="preload" href="/gatsby-blog-tutorial/page-data/36c8d4f0-7394-5bff-b6b5-bae80a8113aa/page-data.json" crossorigin="anonymous"/><link as="fetch" rel="preload" href="/gatsby-blog-tutorial/page-data/app-data.json" crossorigin="anonymous"/></head><body><div id="___gatsby"><div style="outline:none" tabindex="-1" id="gatsby-focus-wrapper"><header class="Header__Wrapper-sc-1isb4n6-0 dmeTcP"><h1><a href="/gatsby-blog-tutorial/">Qiitaに書いたやつ</a></h1></header><div class="post__Body-hsjs07-0 cJcvIG"><article><h1>Swift5.1 dynamicMemberLookup^KeyPathを使ってSwiftにKotolinのapplyを実装する</h1><div><span class="frontmatter tag">Xcode</span><span class="frontmatter tag">iOS</span><span class="frontmatter tag">Kotlin</span><span class="frontmatter tag">Swift</span></div><div class="frontmatter date"><b>2019年10月04日</b></div><div><h3>デモ</h3>
+<div class="gatsby-highlight" data-language=".swift"><pre class="language-.swift"><code class="language-.swift">final class ViewController: UIViewController {
+    override func loadView() {
+        view = UILabel().apply { $0
+            .text(&quot;Apply Swift&quot;)
+            .textAlignment(.center)
+            .textColor(.white)
+            .font(.boldSystemFont(ofSize: 24))
+            .backgroundColor(.black)
+        }
+    }
+}</code></pre></div>
+<img width="375" alt="Simulator Screen Shot - iPhone 8 - 2019-10-10 at 22.43.54.png" src="https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/166241/31904bd4-9ad3-746f-ddb2-e3839afc82fa.png">
+<hr>
+<p>私以外にもKotolinのapplyをSwiftでもやりたいと思ったことのある人はいるでしょう。
+例えば以下のようにUILabelを定義する場面を考えます。</p>
+<div class="gatsby-highlight" data-language=".swift"><pre class="language-.swift"><code class="language-.swift">let label: UILabel = {
+   let it = UILabel()
+   it.text = &quot;label..&quot; 
+   return it
+}()</code></pre></div>
+<p>以前までは、以下のようなプロトコルを定義することで</p>
+<div class="gatsby-highlight" data-language=".swift"><pre class="language-.swift"><code class="language-.swift">protocol Applicatable {}
+
+extension Applicatable {
+  func apply(_ closure: ((Self) -&gt; ())) -&gt; Self {
+        closure(self)
+        return self
+    }
+}
+
+extension NSObject: Applicatable {}</code></pre></div>
+<p>それっぽく実装することができました。</p>
+<div class="gatsby-highlight" data-language=".swift"><pre class="language-.swift"><code class="language-.swift">let label = UILabel().apply { it in
+   it.text = &quot;label..&quot;
+}</code></pre></div>
+<p>しかし言語の進化により、もっとKotolinのapplyに近づけることができるようになりました。
+つい先日<a href="https://github.com/marty-suzuki/DuctTape">DuctTape</a>というライブラリが公開されたのをきっかけにそれが可能になってたことを知りました。（Swiftのキャッチアップに遅れぎみです）</p>
+<h3>dynamicMemberLookup</h3>
+<p>Swift４.2で追加された機能ですが</p>
+<div class="gatsby-highlight" data-language=".swift"><pre class="language-.swift"><code class="language-.swift">@dynamicMemberLookup
+struct StringMaker {
+    subscript(dynamicMember value: String) -&gt; String {
+        return value
+    }
+}
+
+let maker = StringMaker()
+debugPrint(maker.id) // String: id
+debugPrint(maker.name) // String: name</code></pre></div>
+<p>Swift5.1からKeyPathを使えるようになったみたいです。</p>
+<div class="gatsby-highlight" data-language="text"><pre class="language-text"><code class="language-text">@dynamicMemberLookup attribute requires ‘xxx’ to have a ‘subscript(dynamicMember:)’ method that accepts either ‘ExpressibleByStringLiteral’ or a keypath</code></pre></div>
+<p>これを使って参考ライブラリをパクりつつインターフェースの変更を40行程度実装すると</p>
+<div class="gatsby-highlight" data-language=".swift"><pre class="language-.swift"><code class="language-.swift">      let label = UILabel().apply { $0
+            .text(&quot;Apply Swift&quot;)
+            .textAlignment(.center)
+            .textColor(.white)
+            .backgroundColor(.black)
+        }
+
+debugPrint(label.text) // Optional(Apply Swift)</code></pre></div>
+<p>上記のような実装をすることができました。
+一応ソースはGistに公開しておきます。</p>
+<p><a href="https://gist.github.com/churabou/7243d4ac9121a56513bb16023e3698f7">https://gist.github.com/churabou/7243d4ac9121a56513bb16023e3698f7</a></p></div></article></div><footer class="Footer__Wrapper-qhytvz-0 ecpyWB">2020 churabou</footer></div><div id="gatsby-announcer" style="position:absolute;top:0;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0" aria-live="assertive" aria-atomic="true"></div></div><script id="gatsby-script-loader">/*<![CDATA[*/window.pagePath="/36c8d4f0-7394-5bff-b6b5-bae80a8113aa";/*]]>*/</script><script id="gatsby-chunk-mapping">/*<![CDATA[*/window.___chunkMapping={"app":["/app-39e439a958f68f704ff4.js"],"component---src-pages-index-js":["/component---src-pages-index-js-7fc9e6e69cd9c2fd2141.js"],"component---src-templates-post-js":["/component---src-templates-post-js-fdb08e0a613579cf49e2.js"]};/*]]>*/</script><script src="/gatsby-blog-tutorial/component---src-templates-post-js-fdb08e0a613579cf49e2.js" async=""></script><script src="/gatsby-blog-tutorial/291a736a4998dc6bb1e7dae6dfd245355445eafd-31b0091029cd517b9523.js" async=""></script><script src="/gatsby-blog-tutorial/app-39e439a958f68f704ff4.js" async=""></script><script src="/gatsby-blog-tutorial/styles-c3197c6105318d4816ab.js" async=""></script><script src="/gatsby-blog-tutorial/framework-995310802c8b4a765741.js" async=""></script><script src="/gatsby-blog-tutorial/webpack-runtime-875864f198321d4f7ff5.js" async=""></script></body></html>

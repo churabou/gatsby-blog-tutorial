@@ -1,0 +1,518 @@
+<!DOCTYPE html><html><head><meta charSet="utf-8"/><meta http-equiv="x-ua-compatible" content="ie=edge"/><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/><style data-href="/gatsby-blog-tutorial/styles.63ad972f984b81eb4db4.css">body{margin:0;--theme-color:#2f5b83}code[class*=language-],pre[class*=language-]{color:#f8f8f2;background:none;text-shadow:0 1px rgba(0,0,0,.3);font-family:Consolas,Monaco,Andale Mono,Ubuntu Mono,monospace;font-size:1em;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;word-wrap:normal;line-height:1.5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-ms-hyphens:none;hyphens:none}pre[class*=language-]{padding:1em;margin:.5em 0;overflow:auto;border-radius:.3em}:not(pre)>code[class*=language-],pre[class*=language-]{background:#272822}:not(pre)>code[class*=language-]{padding:.1em;border-radius:.3em;white-space:normal}.token.cdata,.token.comment,.token.doctype,.token.prolog{color:#708090}.token.punctuation{color:#f8f8f2}.token.namespace{opacity:.7}.token.constant,.token.deleted,.token.property,.token.symbol,.token.tag{color:#f92672}.token.boolean,.token.number{color:#ae81ff}.token.attr-name,.token.builtin,.token.char,.token.inserted,.token.selector,.token.string{color:#a6e22e}.language-css .token.string,.style .token.string,.token.entity,.token.operator,.token.url,.token.variable{color:#f8f8f2}.token.atrule,.token.attr-value,.token.class-name,.token.function{color:#e6db74}.token.keyword{color:#66d9ef}.token.important,.token.regex{color:#fd971f}.token.bold,.token.important{font-weight:700}.token.italic{font-style:italic}.token.entity{cursor:help}</style><meta name="generator" content="Gatsby 2.20.36"/><style data-styled="" data-styled-version="5.1.0">.dmeTcP{background:var(--theme-color);margin:0px;padding:0.5em 1em;color:white;}/*!sc*/
+.dmeTcP a{-webkit-text-decoration:none;text-decoration:none;color:white;}/*!sc*/
+data-styled.g1[id="Header__Wrapper-sc-1isb4n6-0"]{content:"dmeTcP,"}/*!sc*/
+.ecpyWB{background:#999;padding:1em;color:white;}/*!sc*/
+data-styled.g2[id="Footer__Wrapper-qhytvz-0"]{content:"ecpyWB,"}/*!sc*/
+.cJcvIG{background:#f4f4f4;padding:2em;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-box-pack:space-around;-webkit-justify-content:space-around;-ms-flex-pack:space-around;justify-content:space-around;-webkit-flex-wrap:wrap;-ms-flex-wrap:wrap;flex-wrap:wrap;word-wrap:break-word;}/*!sc*/
+.cJcvIG > article{width:60%;background:white;border-radius:2px;padding:1.5em;margin-bottom:1.5em;}/*!sc*/
+@media screen and (max-width:768px){.cJcvIG > article{width:100%;}}/*!sc*/
+.cJcvIG > article div:last-child img{max-width:100%;}/*!sc*/
+.cJcvIG > article div:last-child a{color:var(--theme-color);-webkit-text-decoration:none;text-decoration:none;}/*!sc*/
+.cJcvIG .frontmatter.tag{display:inline-block;background:var(--theme-color);color:white;margin:0 0.25em 0.25em 0;padding:0.25em;}/*!sc*/
+.cJcvIG .frontmatter.date{margin-top:0.5em;color:#666;}/*!sc*/
+data-styled.g4[id="post__Body-hsjs07-0"]{content:"cJcvIG,"}/*!sc*/
+</style><link as="script" rel="preload" href="/gatsby-blog-tutorial/webpack-runtime-875864f198321d4f7ff5.js"/><link as="script" rel="preload" href="/gatsby-blog-tutorial/framework-995310802c8b4a765741.js"/><link as="script" rel="preload" href="/gatsby-blog-tutorial/styles-c3197c6105318d4816ab.js"/><link as="script" rel="preload" href="/gatsby-blog-tutorial/app-39e439a958f68f704ff4.js"/><link as="script" rel="preload" href="/gatsby-blog-tutorial/291a736a4998dc6bb1e7dae6dfd245355445eafd-31b0091029cd517b9523.js"/><link as="script" rel="preload" href="/gatsby-blog-tutorial/component---src-templates-post-js-fdb08e0a613579cf49e2.js"/><link as="fetch" rel="preload" href="/gatsby-blog-tutorial/page-data/0bf1e7c5-5ba4-5835-b370-47df6c8e0933/page-data.json" crossorigin="anonymous"/><link as="fetch" rel="preload" href="/gatsby-blog-tutorial/page-data/app-data.json" crossorigin="anonymous"/></head><body><div id="___gatsby"><div style="outline:none" tabindex="-1" id="gatsby-focus-wrapper"><header class="Header__Wrapper-sc-1isb4n6-0 dmeTcP"><h1><a href="/gatsby-blog-tutorial/">Qiitaに書いたやつ</a></h1></header><div class="post__Body-hsjs07-0 cJcvIG"><article><h1>Gatsbyを最速で理解するためのチュートリアル</h1><div><span class="frontmatter tag">JavaScript</span><span class="frontmatter tag">静的サイトジェネレーター</span><span class="frontmatter tag">React</span><span class="frontmatter tag">gatsby</span></div><div class="frontmatter date"><b>2019年12月14日</b></div><div><p>Gatsbyを触ってみたのですがチュートリアルだけだと??となる部分がいくつもあり結局ドキュメントをたくさん読むハメになりました。
+ドキュメントのリンクを整理してたらいい感じのチュートリアルができたので投稿しました(所々中途半端ですが・・・)</p>
+<h2>Install</h2>
+<div class="gatsby-highlight" data-language="text"><pre class="language-text"><code class="language-text">npm install -g gatsby-cli</code></pre></div>
+<div class="gatsby-highlight" data-language="text"><pre class="language-text"><code class="language-text">gatsby new [rootPath] [starter]  Create new Gatsby project.</code></pre></div>
+<p><a href="#starter">starter</a>を指定する。デフォルトではdefault starterが選択されます。</p>
+<p>チュートリアルなのでhello-world一択。</p>
+<div class="gatsby-highlight" data-language="text"><pre class="language-text"><code class="language-text">gatsby new my-blog https://github.com/gatsbyjs/gatsby-starter-hello-world</code></pre></div>
+<div class="gatsby-highlight" data-language="text"><pre class="language-text"><code class="language-text">gatusby deplop </code></pre></div>
+<p>一応npm scriptにも書かれています。</p>
+<div class="gatsby-highlight" data-language="text"><pre class="language-text"><code class="language-text">npm run deplop </code></pre></div>
+<div class="gatsby-highlight" data-language="　.json"><pre class="language-　.json"><code class="language-　.json"> &quot;scripts&quot;: {
+    &quot;develop&quot;: &quot;gatsby develop&quot;
+  }</code></pre></div>
+<p><code class="language-text">-p</code>オプションで別のポートを指定することができるので複数のプロジェクトを立ち上げたいときに。</p>
+<div class="gatsby-highlight" data-language="text"><pre class="language-text"><code class="language-text">gatusby deplop -p 3000</code></pre></div>
+<p><a href="https://www.gatsbyjs.org/docs/gatsby-cli/">CLI</a>のドキュメントまで丁寧にあります。</p>
+<p>デフォルトだと<a href="http://localhost:8000/">http://localhost:8000/</a> でページに<a href="http://localhost:8000/___graphql">http://localhost:8000/___graphql</a> でGrqphiQLにアクセスできます。</p>
+<h2>入門</h2>
+<h3>Page</h3>
+<p>ディレクトリの構成にルールがあって<code class="language-text">pages/</code>が自動でページなります。
+例えば<code class="language-text">pages/about.js</code>を作成すると<code class="language-text">/about</code>で表示されます(ページが生成されてルートが設定される)</p>
+<div class="gatsby-highlight" data-language="pages/index.js"><pre class="language-pages/index.js"><code class="language-pages/index.js">import React from &#39;react&#39;
+
+export default &lt;div&gt; index page &lt;/div&gt;</code></pre></div>
+<div class="gatsby-highlight" data-language="pages/about.js"><pre class="language-pages/about.js"><code class="language-pages/about.js">import React from &#39;react&#39;
+
+export default &lt;div&gt; hello page &lt;/div&gt;</code></pre></div>
+<p>その他は<code class="language-text">components/</code>に共通コンポネントを作成するなど普通のReactのアプリケーションのようにを開発できます。</p>
+<blockquote>
+<p>Any React component defined in src/pages/*.js will automatically become a page.</p>
+</blockquote>
+<p><a href="https://www.gatsbyjs.org/tutorial/part-one/#-using-page-components">using-page-components</a></p>
+<p>またテンプレートファイルを作成して動的にページを生成することも可能です。<a href="https://www.gatsbyjs.org/docs/recipes/#creating-pages-automatically">creating-pages-automatically</a></p>
+<h3>GraphQL</h3>
+<p>gatsbyの便利な点はプロジェクト内のデータをGraphqlで取得できるところです。</p>
+<p>例えばProjectの<a href="https://www.gatsbyjs.org/docs/gatsby-config/#configuration-options">設定</a>情報は以下のqueryで取得できます。</p>
+<p>configファイルを以下のように変更します。</p>
+<div class="gatsby-highlight" data-language="javascript"><pre class="language-javascript"><code class="language-javascript">module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">{</span>
+  siteMetadata<span class="token operator">:</span> <span class="token punctuation">{</span>
+    title<span class="token operator">:</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">Title from siteMetadata</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">,</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre></div>
+<div class="gatsby-highlight" data-language="text"><pre class="language-text"><code class="language-text">  query {
+    site {
+      siteMetadata {
+        title
+      }
+    }
+  }</code></pre></div>
+<p><a href="http://localhost:8000/___graphql?query=%20%20query%20%7B%0A%20%20%20%20site%20%7B%0A%20%20%20%20%20%20siteMetadata%20%7B%0A%20%20%20%20%20%20%20%20title%0A%20%20%20%20%20%20%7D%0A%20%20%20%20%7D%0A%20%20%7D">デモ</a></p>
+<p>このようにプロジェクトの情報をqueryで取得して、それを表示するReactのコンポネントを作成し、それを元にgatsbyがページを生成するという流れになります。</p>
+<p><a href="https://www.gatsbyjs.org/tutorial/part-four/#use-a-page-query">use-a-page-query</a></p>
+<p>このGraphQLですがデータを追加する作業とデータを取得する作業の二つに分けて理解するのがいいと思います。</p>
+<hr>
+<p>まずデータを追加する作業から見ていきます。
+後述するプラグインを入れる事でプロジェクト内の情報を自由に取得できるようになります。</p>
+<p><a href="https://www.gatsbyjs.org/docs/recipes/#adding-data-to-graphql">adding-data-to-graphql</a></p>
+<h4>プラグインからデータを追加する</h4>
+<p>データを追加する作業はドキュメントに<code class="language-text">plugin driven</code>と書かれていて、実際プラグインを入れるだけです。</p>
+<p><a href="https://www.gatsbyjs.org/docs/recipes/#5-sourcing-data">sourcing-data</a></p>
+<h5>gatsby-source-filesystem</h5>
+<p>例えば<code class="language-text">gatsby-source-filesystem</code>を使うことでソースからデータを取得できるようになります。</p>
+<div class="gatsby-highlight" data-language="text"><pre class="language-text"><code class="language-text">npm install --save gatsby-source-filesystem</code></pre></div>
+<div class="gatsby-highlight" data-language="gatsby-config.js.js"><pre class="language-gatsby-config.js.js"><code class="language-gatsby-config.js.js">module.exports = {
+  siteMetadata: {
+    title: `Pandas Eating Lots`,
+  },
+  plugins: [
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `src`,
+        path: `${__dirname}/src/`,
+      },
+    }
+  ]
+}</code></pre></div>
+<p>graphiqlを開くと<code class="language-text">allFile</code>と<code class="language-text">file</code>が新たに追加され、以下のqueryでファイル情報を取得できるようになります。</p>
+<div class="gatsby-highlight" data-language=".graphql"><pre class="language-.graphql"><code class="language-.graphql">  query {
+    allFile {
+      edges {
+        node {
+          relativePath
+          prettySize
+          extension
+          birthTime(fromNow: true)
+        }
+      }
+    }
+  }</code></pre></div>
+<p><a href="https://www.gatsbyjs.org/tutorial/part-five/">https://www.gatsbyjs.org/tutorial/part-five/</a></p>
+<p>チュートリアルではプロジェクトのJSファイルを取得して表示しています。</p>
+<h5><a href="https://www.gatsbyjs.org/packages/gatsby-transformer-remark/">gatsby-transformer-remark</a></h5>
+<p><a href="https://www.gatsbyjs.org/docs/adding-markdown-pages/#transform-markdown-to-html-and-frontmatter-to-data-using-gatsby-transformer-remark">https://www.gatsbyjs.org/docs/adding-markdown-pages/#transform-markdown-to-html-and-frontmatter-to-data-using-gatsby-transformer-remark</a></p>
+<p>これはデータを追加するだけのプラグインではないので、この流れで書くのも微妙なのですが
+このプラグインがやってくれる一番わかりやすいのはmarkdownを変換してくれるところです。mdファイルの情報をhtmlに変換して取得できたり、frontmatterなどのメタ情報を取得できます。</p>
+<p><code class="language-text">allMarkdownRemark</code>というのが追加されます。</p>
+<h4>自分でデータを追加する</h4>
+<p>createNodeAPIを使って自分でデータを流すことができます。後述しますがプラグインはこのAPIを使ってデータを流しています。</p>
+<h5>手動でデータを入れてみる</h5>
+<details><summary>ポケモンのデータを入れてみる</summary><div>
+<div class="gatsby-highlight" data-language=".js"><pre class="language-.js"><code class="language-.js">exports.sourceNodes = ({ actions, createNodeId, createContentDigest }) =&gt; {
+  const pokemons = [
+    { name: &quot;Pikachu&quot;, type: &quot;electric&quot; },
+    { name: &quot;Squirtle&quot;, type: &quot;water&quot; },
+  ]
+  pokemons.forEach(pokemon =&gt; {
+    const node = {
+      name: pokemon.name,
+      type: pokemon.type,
+      id: createNodeId(`Pokemon-${pokemon.name}`),
+      internal: {
+        type: &quot;Pokemon&quot;,
+        contentDigest: createContentDigest(pokemon),
+      },
+    }
+    actions.createNode(node)
+  })
+}</code></pre></div>
+</div></details>
+<p>以下のqueryでポケモンを取得できるようになります。</p>
+<div class="gatsby-highlight" data-language=".graphql"><pre class="language-.graphql"><code class="language-.graphql">query MyPokemonQuery {
+  allPokemon {
+    nodes {
+      name
+      type
+      id
+    }
+  }
+}</code></pre></div>
+<p>外部から取得したデータを流すこともできる。</p>
+<h5>APIから取得したデータを流してみる</h5>
+<details><summary>QiitaのAPIからデータを流してみる</summary><div>
+<p>この辺のAPIは詳しく確認してないので、少し修正しただけですが、</p>
+<div class="gatsby-highlight" data-language=".js"><pre class="language-.js"><code class="language-.js">const fetch = require(&quot;node-fetch&quot;)
+
+const fetchItems = () =&gt;
+  fetch(&quot;https://qiita.com/api/v2/items&quot;).then(res =&gt; res.json())
+
+exports.sourceNodes = async ({
+  actions,
+  createNodeId,
+  createContentDigest,
+}) =&gt; {
+  const items = await fetchItems()
+  items.forEach(item =&gt; {
+    const node = {
+      id: item.id,
+      title: item.title,
+      user: {
+        name: item.user.name,
+      },
+      internal: {
+        type: &quot;Item&quot;,
+        contentDigest: createContentDigest(item),
+      },
+    }
+    actions.createNode(node)
+  })
+}</code></pre></div>
+<div class="gatsby-highlight" data-language=".graphql"><pre class="language-.graphql"><code class="language-.graphql">query ItemQuery {
+  allItem {
+    nodes {
+      title
+      user {
+        name
+      }
+    }
+  }
+}</code></pre></div>
+<div class="gatsby-highlight" data-language="text"><pre class="language-text"><code class="language-text">{
+  &quot;data&quot;: {
+    &quot;allItem&quot;: {
+      &quot;nodes&quot;: [
+        {
+          &quot;title&quot;: &quot;blob &amp; createObjectURL について &quot;,
+          &quot;user&quot;: {
+            &quot;name&quot;: &quot;Yu Watanabe&quot;
+          }
+        },
+      ]
+   }
+  }
+}</code></pre></div>
+<p>QiitaのAPIからとってきた情報を流す事で、queryで取得できるようになりました。</p>
+</div>
+</details>
+<p>先ほどの<a href="https://github.com/gatsbyjs/gatsby/blob/master/packages/gatsby-source-filesystem/src/gatsby-node.js">gatsby-source-filesystem</a>もこのcreateNodeを使ってローカルのファイル一覧を取得して流し込んでいるのがわかると思います。</p>
+<p>ファイルの情報を流すとかwordpressから記事を取得して流すといったことをやってくれるプラグインがあるので、我々は設定ファイルにパスだったりurlを入れるだけでqueryでデータを取得できるようになります。</p>
+<p><a href="https://www.gatsbyjs.org/docs/pixabay-source-plugin-tutorial/">pixabay-source-plugin-tutorial</a></p>
+<p>そしてqueryで取得した結果をページに表示するだけでいいのです。</p>
+<h4>nodeを追加する</h4>
+<p>nodeにfieldを追加することができます。</p>
+<p><a href="https://www.gatsbyjs.org/docs/creating-slugs-for-pages/#create-slugs-in-gatsby-nodejs">creating-slugs-for-pages</a></p>
+<div class="gatsby-highlight" data-language=".js"><pre class="language-.js"><code class="language-.js">const { createFilePath } = require(`gatsby-source-filesystem`)
+
+exports.onCreateNode = ({ node, getNode, actions }) =&gt; {
+  const { createNodeField } = actions
+  if (node.internal.type === `MarkdownRemark`) {
+    const slug = createFilePath({ node, getNode, basePath: `pages` })
+    createNodeField({
+      node,
+      name: `slug`,
+      value: slug,
+    })
+  }
+}</code></pre></div>
+<p>が追加されてslugが取得できるようになった。</p>
+<div class="gatsby-highlight" data-language="text"><pre class="language-text"><code class="language-text">query  {
+  allMarkdownRemark {
+    edges {
+      node {
+        id
+        fields {
+          slug
+        }
+      }
+    }
+  }
+}</code></pre></div>
+<h4>Query</h4>
+<p>GraphQLを初めて触る人もいるかもしれませんがサイトを作るだけであれば<a href="https://www.gatsbyjs.org/docs/graphql-reference/">レファレンス</a>の内容で十分だと思います。またGrqphiqlで左側をぽちぽち動かせば勝手にquery作ってくれるので特に困ることもないかと思います。</p>
+<img width="337" alt="スクリーンショット 2019-12-07 20.36.22.png" src="https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/166241/c08405e5-0c4f-c73e-cd25-76e98826ab99.png">
+<h5>alias</h5>
+<p><code class="language-text">allMarkdownRemark</code>の結果はそのままだと<code class="language-text">data.allMarkdownRemark</code>ですが、先頭に任意のaliasをつけることができます。
+<code class="language-text">data.latestPost</code>, <code class="language-text">data.relatedPost</code>のように帰ってきます。</p>
+<div class="gatsby-highlight" data-language="text"><pre class="language-text"><code class="language-text">query {
+  latestPost: allMarkdownRemark(limit: 5) { }
+  relatedPost: allMarkdownRemark(limit: 5) { }
+}</code></pre></div>
+<h5>frontmatter</h5>
+<p>マークダウンファイルの先頭に以下のように情報を定義します。</p>
+<div class="gatsby-highlight" data-language=".md"><pre class="language-.md"><code class="language-.md">---
+title: my first post
+date: 2019-12-7
+---</code></pre></div>
+<p>先ほどの<code class="language-text">gatsby-transformer-remark</code>を使うことで以下のqueryで取得することができます。</p>
+<div class="gatsby-highlight" data-language="text"><pre class="language-text"><code class="language-text">frontmatter {
+  title:
+  date:
+}</code></pre></div>
+<h5>params</h5>
+<p>どちらかというと<code class="language-text">markdown-remark</code>の話ですが、</p>
+<ul>
+<li>limit</li>
+</ul>
+<div class="gatsby-highlight" data-language="text"><pre class="language-text"><code class="language-text"> allMarkdownRemark(limit: 5) { }</code></pre></div>
+<ul>
+<li>format</li>
+</ul>
+<div class="gatsby-highlight" data-language="text"><pre class="language-text"><code class="language-text">date(formatString: &quot;YYYY月MM月DD日&quot;)</code></pre></div>
+<ul>
+<li>filter</li>
+</ul>
+<div class="gatsby-highlight" data-language="text"><pre class="language-text"><code class="language-text">filter: { tags: { in: [&quot;post&quot;, &quot;page&quot;] }, draft: { eq: false } }</code></pre></div>
+<h5>直近の投稿5件を取得するQuery</h5>
+<div class="gatsby-highlight" data-language="text"><pre class="language-text"><code class="language-text">query {
+  allMarkdownRemark(
+    limit: 5,
+    sort: {order: DESC, fields: frontmatter___create_at}
+  ) {
+    edges {
+      node {
+        id
+        frontmatter {
+          title
+        }
+      }
+    }
+  }
+}</code></pre></div>
+<h3>動的にページを生成する。</h3>
+<h4>ページから必要なデータを取得する</h4>
+<p>実際にGraphQLからデータを取得してページに表示していきます。</p>
+<div class="gatsby-highlight" data-language=".js"><pre class="language-.js"><code class="language-.js">import React from &quot;react&quot;
+import { graphql } from &quot;gatsby&quot;
+
+export const query = graphql`
+  query TitleQuery {
+    site {
+      siteMetadata {
+        title
+      }
+    }
+  }
+`
+export default ({ data }) =&gt; (
+  &lt;div&gt;
+    &lt;h1&gt;{data.site.siteMetadata.title}&lt;/h1&gt;
+  &lt;/div&gt;
+)</code></pre></div>
+<p><a href="https://www.gatsbyjs.org/docs/page-query/">page-query</a></p>
+<ul>
+<li>１つのファイルにつき１つのqueryを宣言できる。この時変数は関係ない。</li>
+<li>queryの結果がpropsのdataオブジェクトに入ってくる。</li>
+</ul>
+<p>チュートリアルには書かれていないのですが、上記のルールがあります。</p>
+<p>試しに一つのファイルに二つのqueryを宣言してみたら怒られました。</p>
+<div class="gatsby-highlight" data-language="text"><pre class="language-text"><code class="language-text">export const query1 = graphql`
+  query HomePageQuery {
+    site {
+      siteMetadata {
+        description
+      }
+    }
+  }
+`
+export const query2 = graphql`
+  query HomePageQuery {
+    site {
+      siteMetadata {
+        description
+      }
+    }
+  }
+`</code></pre></div>
+<div class="gatsby-highlight" data-language="text"><pre class="language-text"><code class="language-text">Multiple &quot;root&quot; queries found in file</code></pre></div>
+<p>初めてこれを見たときは、どうしてpropsのdataにqueryの結果が渡ってくるんだ？いつqueryは実行されるという気持ちになったのですが、今使っているのは静的サイトジェネレーターでなので、お作法に従ってファイルにqueryを定義すればそれをもとにページ生成してくれるということを忘れていました。</p>
+<p><a href="https://www.gatsbyjs.org/docs/recipes/#querying-data-with-a-page-query">https://www.gatsbyjs.org/docs/recipes/#querying-data-with-a-page-query</a>
+<a href="https://www.gatsbyjs.org/docs/page-query/#add-the-graphql-query">https://www.gatsbyjs.org/docs/page-query/#add-the-graphql-query</a></p>
+<h4>動的にページを生成する</h4>
+<p><code class="language-text">createPage</code> APIを使ってテンプレートから動的にPageを生成します。</p>
+<p>チュートリアルの<a href="https://www.gatsbyjs.org/tutorial/part-seven/">part７</a>でこんな感じになると思います。</p>
+<div class="gatsby-highlight" data-language="gatsby-node.js"><pre class="language-gatsby-node.js"><code class="language-gatsby-node.js">const path = require(`path`)
+
+exports.createPages = async ({ actions, graphql }) =&gt; {
+  const result = await graphql(`
+    {
+      allMarkdownRemark {
+        edges {
+          node {
+            frontmatter {
+              path
+            }
+          }
+        }
+      }
+    }
+  `)
+
+  if (result.errors) { console.error(result.errors) }
+
+  result.data.allMarkdownRemark.edges.forEach(({ node }) =&gt; {
+    actions.createPage({
+      path: node.frontmatter.path,
+      component: path.resolve(`src/templates/post.js`),
+    })
+  })
+}</code></pre></div>
+<div class="gatsby-highlight" data-language="src/templates/post-template.js"><pre class="language-src/templates/post-template.js"><code class="language-src/templates/post-template.js">import React from &quot;react&quot;
+import { graphql } from &quot;gatsby&quot;
+
+export const pageQuery = graphql`
+  query($path: String!) {
+    markdownRemark(frontmatter: { path: { eq: $path } }) {
+      html
+      frontmatter {
+        date(formatString: &quot;MMMM DD, YYYY&quot;)
+        path
+        title
+      }
+    }
+  }
+`
+
+const Template = ({ data }) =&gt; {
+  const { markdownRemark } = dat
+  const { frontmatter, html } = markdownRemark
+  return (
+    &lt;div className=&quot;blog-post&quot;&gt;
+      &lt;h1&gt;{frontmatter.title}&lt;/h1&gt;
+      &lt;h2&gt;{frontmatter.date}&lt;/h2&gt;
+      &lt;div
+        className=&quot;blog-post-content&quot;
+        dangerouslySetInnerHTML={{ __html: html }}
+      /&gt;
+    &lt;/div&gt;
+  )
+}
+
+export default Template;</code></pre></div>
+<p>まず、テンプレートファイルを見てみます。テンプレートファイルはpathパラメータを使ったqueryの結果を埋め込むようになっています。</p>
+<p><code class="language-text">gatsby-node.js</code>では全てのmdファイルのquery結果を元に<code class="language-text">createPage</code>メソッドを読んでいます。
+このメソッドが上のテンプレートファイルを指定していて、動的にページが生成されます。
+想像はつくもののチュートリアルに書かれていない大事な点は引数のcontextがtemplateのpropsとtemplateファイルのqueryの引数として渡せる点です。</p>
+<p><a href="https://www.gatsbyjs.org/docs/recipes/#sourcing-markdown-data-for-blog-posts-and-pages-with-graphql">https://www.gatsbyjs.org/docs/recipes/#sourcing-markdown-data-for-blog-posts-and-pages-with-graphql</a>
+<a href="https://www.gatsbyjs.org/docs/using-gatsby-without-graphql/">https://www.gatsbyjs.org/docs/using-gatsby-without-graphql/</a></p>
+<p><a href="https://www.gatsbyjs.org/docs/node-apis/#createPages">onCreatePage</a></p>
+<blockquote>
+<p> All context values are made available to a template’s GraphQL queries as arguments prefaced with $</p>
+</blockquote>
+<p><a href="https://www.gatsbyjs.org/docs/programmatically-create-pages-from-data/#creating-pages">https://www.gatsbyjs.org/docs/programmatically-create-pages-from-data/#creating-pages</a></p>
+<p><a href="https://www.gatsbyjs.org/docs/actions/#createPage">createPage</a></p>
+<blockquote>
+<p>pased as props to the component this.props.pageContext as well as to the graphql query as graphql arguments.</p>
+</blockquote>
+<p>ソースを探すの少し時間がかかりました。</p>
+<h2>概念的な</h2>
+<h4>Starter</h4>
+<ul>
+<li>gatsby-starter-default	</li>
+<li>gatsby-starter-blog	</li>
+<li>gatsby-starter-hello-world	</li>
+</ul>
+<p>公式のstarterは実は上の３つだけ。</p>
+<p><a href="https://www.gatsbyjs.org/docs/starters/">https://www.gatsbyjs.org/docs/starters/</a></p>
+<p>スターター一覧
+<a href="https://www.gatsbyjs.org/starters/?v=2">https://www.gatsbyjs.org/starters/?v=2</a></p>
+<div class="gatsby-highlight" data-language="text"><pre class="language-text"><code class="language-text">gatsby new gatsby-starter-hero-blog https://github.com/greglobinski/gatsby-starter-hero-blog</code></pre></div>
+<p><a href="https://www.gatsbyjs.org/starters/greglobinski/gatsby-starter-hero-blog/">https://www.gatsbyjs.org/starters/greglobinski/gatsby-starter-hero-blog/</a></p>
+<p>これはちょっと重かった。</p>
+<h4>Plugin</h4>
+<p><a href="https://www.gatsbyjs.org/docs/plugins/">https://www.gatsbyjs.org/docs/plugins/</a></p>
+<div class="gatsby-highlight" data-language="text"><pre class="language-text"><code class="language-text">npm install --save gatsby-transformer-json</code></pre></div>
+<div class="gatsby-highlight" data-language="text"><pre class="language-text"><code class="language-text">module.exports = {
+  plugins: [`gatsby-transformer-json`],
+}</code></pre></div>
+<p>Pluginは任意のOptionを指定できる。</p>
+<div class="gatsby-highlight" data-language=".js"><pre class="language-.js"><code class="language-.js">  plugins: [
+    // Shortcut for adding plugins without options.
+    &quot;gatsby-plugin-react-helmet&quot;,
+    {
+      // Standard plugin with options example
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: `${__dirname}/src/data/`,
+        name: &quot;data&quot;,
+      },
+    }
+  ]</code></pre></div>
+<p><a href="https://www.gatsbyjs.org/docs/using-a-plugin-in-your-site/">https://www.gatsbyjs.org/docs/using-a-plugin-in-your-site/</a></p>
+<p>StyledComponentsやaxiosなどのnpx packageを使うには</p>
+<p><a href="https://www.gatsbyjs.org/docs/what-you-dont-need-plugins-for/">https://www.gatsbyjs.org/docs/what-you-dont-need-plugins-for/</a></p>
+<p>ローカルのパスを指定してプラグインを入れることもできる。</p>
+<p><a href="https://www.gatsbyjs.org/docs/loading-plugins-from-your-local-plugins-folder/">https://www.gatsbyjs.org/docs/loading-plugins-from-your-local-plugins-folder/</a></p>
+<h4>Config</h4>
+<p><a href="https://www.gatsbyjs.org/docs/api-files-gatsby-node/">https://www.gatsbyjs.org/docs/api-files-gatsby-node/</a></p>
+<h5>gatsby-config.js</h5>
+<h5>gatsyby-node.js</h5>
+<p>build時に一度だけ呼ばれ、動的にページを生成したり、GraphQLのnodeを追加したりする。</p>
+<p><a href="https://www.gatsbyjs.org/docs/api-files-gatsby-node/">https://www.gatsbyjs.org/docs/api-files-gatsby-node/</a></p>
+<h2>実践編</h2>
+<div class="gatsby-highlight" data-language="text"><pre class="language-text"><code class="language-text">gatsby new blog https://github.com/gatsbyjs/gatsby-starter-hello-world</code></pre></div>
+<h4>styled-componentsを使う</h4>
+<p><a href="https://www.gatsbyjs.org/docs/styled-components/">https://www.gatsbyjs.org/docs/styled-components/</a></p>
+<p>モジュールとプラグインを入れます。</p>
+<div class="gatsby-highlight" data-language="text"><pre class="language-text"><code class="language-text">npm install --save gatsby-plugin-styled-components styled-components babel-plugin-styled-components</code></pre></div>
+<div class="gatsby-highlight" data-language="javascript"><pre class="language-javascript"><code class="language-javascript">module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">{</span>
+  plugins<span class="token operator">:</span> <span class="token punctuation">[</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">gatsby-plugin-styled-components</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span></code></pre></div>
+<h4>typescriptを使う</h4>
+<p>あまり参考になるかはわかりませんが、Pluginを入れる必要があります。</p>
+<p><a href="https://github.com/gatsbyjs/gatsby/tree/master/examples/using-typescript">https://github.com/gatsbyjs/gatsby/tree/master/examples/using-typescript</a></p>
+<p><a href="https://www.gatsbyjs.org/packages/gatsby-plugin-typescript/?=type">https://www.gatsbyjs.org/packages/gatsby-plugin-typescript/?=type</a></p>
+<div class="gatsby-highlight" data-language="text"><pre class="language-text"><code class="language-text">npm install gatsby-plugin-typescript</code></pre></div>
+<div class="gatsby-highlight" data-language=".json"><pre class="language-.json"><code class="language-.json">{
+  &quot;include&quot;: [&quot;./src/**/*&quot;],
+  &quot;compilerOptions&quot;: {
+    &quot;target&quot;: &quot;esnext&quot;,
+    &quot;module&quot;: &quot;commonjs&quot;,
+    &quot;lib&quot;: [&quot;dom&quot;, &quot;es2017&quot;],
+    &quot;jsx&quot;: &quot;react&quot;,
+    &quot;strict&quot;: true,
+    &quot;esModuleInterop&quot;: true,
+    &quot;experimentalDecorators&quot;: true,
+    &quot;emitDecoratorMetadata&quot;: true,
+    &quot;noEmit&quot;: true,
+    &quot;skipLibCheck&quot;: true
+  }
+}</code></pre></div>
+<p>Typescriptを使うメリットがどれくらいあるかだが、公式がPropsTypesで頑張ってるのをみると入れてもいいと思う。</p>
+<h4>Syntax Hilight</h4>
+<p>GatsbyのPluginにのっかって楽をするだけであればプラグイン入れるだけです。</p>
+<div class="gatsby-highlight" data-language="text"><pre class="language-text"><code class="language-text">npm i -S gatsby-remark-prismjs</code></pre></div>
+<p><code class="language-text">gatsby-transformer-remark</code>のpluginに追加してあげます。</p>
+<div class="gatsby-highlight" data-language="javascript"><pre class="language-javascript"><code class="language-javascript">plugins<span class="token operator">:</span> <span class="token punctuation">[</span>
+  <span class="token punctuation">{</span>
+    resolve<span class="token operator">:</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">gatsby-transformer-remark</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">,</span>
+    options<span class="token operator">:</span> <span class="token punctuation">{</span>
+      plugins<span class="token operator">:</span> <span class="token punctuation">[</span>
+        <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">gatsby-remark-prismjs</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">,</span>
+      <span class="token punctuation">]</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">]</span></code></pre></div>
+<p>先ほどのqueryがclassつきのhtmlを取得できます。
+あとは自分でstyleを指定してもいいですが、標準で用意されているテーマを読み込んであげるだけです。</p>
+<p><code class="language-text">gatsby-browser.js</code></p>
+<div class="gatsby-highlight" data-language="javascript"><pre class="language-javascript"><code class="language-javascript"><span class="token function">require</span><span class="token punctuation">(</span><span class="token string">"prismjs/themes/prism-solarizedlight.css"</span><span class="token punctuation">)</span></code></pre></div>
+<p><a href="https://www.gatsbyjs.org/packages/gatsby-remark-prismjs/">https://www.gatsbyjs.org/packages/gatsby-remark-prismjs/</a></p>
+<h4>Tag振り分け</h4>
+<p><a href="https://www.gatsbyjs.org/docs/adding-tags-and-categories-to-blog-posts/">https://www.gatsbyjs.org/docs/adding-tags-and-categories-to-blog-posts/</a></p>
+<h4>SEO</h4>
+<p>SEOコンポネントがドキュメントに掲載されています。</p>
+<p><a href="https://www.gatsbyjs.org/docs/add-seo-component/">https://www.gatsbyjs.org/docs/add-seo-component/</a></p>
+<h4>Deploy(GitHub-Pages)</h4>
+<p>プラグイン入れてpushするだけです。</p>
+<p><a href="https://www.gatsbyjs.org/docs/how-gatsby-works-with-github-pages/">https://www.gatsbyjs.org/docs/how-gatsby-works-with-github-pages/</a></p>
+<h4>Plugin</h4>
+<p>エディターのpluginを使えばgraphqlの入力に補間が効くかも・・</p>
+<h2>感想</h2>
+<p>簡単簡単と言われているのでQiitaのチュートリアル見ながら３０分くらいでいけるのかと思ったのですが、結局ドキュメントをたくさん読むハメになり結構時間がかかってしまいました。
+チュートリアルだけではなんで？っていいうお気持ちになるので、余力があれば<a href="https://www.gatsbyjs.org/docs/recipes/">recipes</a>と<a href="https://www.gatsbyjs.org/docs/content-and-data/">content-and-data</a>をみると理解が早まるのでお勧めです。お作法に従って書くのが苦手でなければかなり簡単だと思います。
+というか長々とかきましたがお気に入りのstarterから初めて少し変更するぐらいが一番コスパが良いと思います。</p></div></article></div><footer class="Footer__Wrapper-qhytvz-0 ecpyWB">2020 churabou</footer></div><div id="gatsby-announcer" style="position:absolute;top:0;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0" aria-live="assertive" aria-atomic="true"></div></div><script id="gatsby-script-loader">/*<![CDATA[*/window.pagePath="/0bf1e7c5-5ba4-5835-b370-47df6c8e0933";/*]]>*/</script><script id="gatsby-chunk-mapping">/*<![CDATA[*/window.___chunkMapping={"app":["/app-39e439a958f68f704ff4.js"],"component---src-pages-index-js":["/component---src-pages-index-js-7fc9e6e69cd9c2fd2141.js"],"component---src-templates-post-js":["/component---src-templates-post-js-fdb08e0a613579cf49e2.js"]};/*]]>*/</script><script src="/gatsby-blog-tutorial/component---src-templates-post-js-fdb08e0a613579cf49e2.js" async=""></script><script src="/gatsby-blog-tutorial/291a736a4998dc6bb1e7dae6dfd245355445eafd-31b0091029cd517b9523.js" async=""></script><script src="/gatsby-blog-tutorial/app-39e439a958f68f704ff4.js" async=""></script><script src="/gatsby-blog-tutorial/styles-c3197c6105318d4816ab.js" async=""></script><script src="/gatsby-blog-tutorial/framework-995310802c8b4a765741.js" async=""></script><script src="/gatsby-blog-tutorial/webpack-runtime-875864f198321d4f7ff5.js" async=""></script></body></html>

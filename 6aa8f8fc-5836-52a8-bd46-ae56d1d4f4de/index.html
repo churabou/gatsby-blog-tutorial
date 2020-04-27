@@ -1,0 +1,166 @@
+<!DOCTYPE html><html><head><meta charSet="utf-8"/><meta http-equiv="x-ua-compatible" content="ie=edge"/><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/><style data-href="/gatsby-blog-tutorial/styles.63ad972f984b81eb4db4.css">body{margin:0;--theme-color:#2f5b83}code[class*=language-],pre[class*=language-]{color:#f8f8f2;background:none;text-shadow:0 1px rgba(0,0,0,.3);font-family:Consolas,Monaco,Andale Mono,Ubuntu Mono,monospace;font-size:1em;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;word-wrap:normal;line-height:1.5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-ms-hyphens:none;hyphens:none}pre[class*=language-]{padding:1em;margin:.5em 0;overflow:auto;border-radius:.3em}:not(pre)>code[class*=language-],pre[class*=language-]{background:#272822}:not(pre)>code[class*=language-]{padding:.1em;border-radius:.3em;white-space:normal}.token.cdata,.token.comment,.token.doctype,.token.prolog{color:#708090}.token.punctuation{color:#f8f8f2}.token.namespace{opacity:.7}.token.constant,.token.deleted,.token.property,.token.symbol,.token.tag{color:#f92672}.token.boolean,.token.number{color:#ae81ff}.token.attr-name,.token.builtin,.token.char,.token.inserted,.token.selector,.token.string{color:#a6e22e}.language-css .token.string,.style .token.string,.token.entity,.token.operator,.token.url,.token.variable{color:#f8f8f2}.token.atrule,.token.attr-value,.token.class-name,.token.function{color:#e6db74}.token.keyword{color:#66d9ef}.token.important,.token.regex{color:#fd971f}.token.bold,.token.important{font-weight:700}.token.italic{font-style:italic}.token.entity{cursor:help}</style><meta name="generator" content="Gatsby 2.20.36"/><style data-styled="" data-styled-version="5.1.0">.dmeTcP{background:var(--theme-color);margin:0px;padding:0.5em 1em;color:white;}/*!sc*/
+.dmeTcP a{-webkit-text-decoration:none;text-decoration:none;color:white;}/*!sc*/
+data-styled.g1[id="Header__Wrapper-sc-1isb4n6-0"]{content:"dmeTcP,"}/*!sc*/
+.ecpyWB{background:#999;padding:1em;color:white;}/*!sc*/
+data-styled.g2[id="Footer__Wrapper-qhytvz-0"]{content:"ecpyWB,"}/*!sc*/
+.cJcvIG{background:#f4f4f4;padding:2em;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-box-pack:space-around;-webkit-justify-content:space-around;-ms-flex-pack:space-around;justify-content:space-around;-webkit-flex-wrap:wrap;-ms-flex-wrap:wrap;flex-wrap:wrap;word-wrap:break-word;}/*!sc*/
+.cJcvIG > article{width:60%;background:white;border-radius:2px;padding:1.5em;margin-bottom:1.5em;}/*!sc*/
+@media screen and (max-width:768px){.cJcvIG > article{width:100%;}}/*!sc*/
+.cJcvIG > article div:last-child img{max-width:100%;}/*!sc*/
+.cJcvIG > article div:last-child a{color:var(--theme-color);-webkit-text-decoration:none;text-decoration:none;}/*!sc*/
+.cJcvIG .frontmatter.tag{display:inline-block;background:var(--theme-color);color:white;margin:0 0.25em 0.25em 0;padding:0.25em;}/*!sc*/
+.cJcvIG .frontmatter.date{margin-top:0.5em;color:#666;}/*!sc*/
+data-styled.g4[id="post__Body-hsjs07-0"]{content:"cJcvIG,"}/*!sc*/
+</style><link as="script" rel="preload" href="/gatsby-blog-tutorial/webpack-runtime-875864f198321d4f7ff5.js"/><link as="script" rel="preload" href="/gatsby-blog-tutorial/framework-995310802c8b4a765741.js"/><link as="script" rel="preload" href="/gatsby-blog-tutorial/styles-c3197c6105318d4816ab.js"/><link as="script" rel="preload" href="/gatsby-blog-tutorial/app-39e439a958f68f704ff4.js"/><link as="script" rel="preload" href="/gatsby-blog-tutorial/291a736a4998dc6bb1e7dae6dfd245355445eafd-31b0091029cd517b9523.js"/><link as="script" rel="preload" href="/gatsby-blog-tutorial/component---src-templates-post-js-fdb08e0a613579cf49e2.js"/><link as="fetch" rel="preload" href="/gatsby-blog-tutorial/page-data/6aa8f8fc-5836-52a8-bd46-ae56d1d4f4de/page-data.json" crossorigin="anonymous"/><link as="fetch" rel="preload" href="/gatsby-blog-tutorial/page-data/app-data.json" crossorigin="anonymous"/></head><body><div id="___gatsby"><div style="outline:none" tabindex="-1" id="gatsby-focus-wrapper"><header class="Header__Wrapper-sc-1isb4n6-0 dmeTcP"><h1><a href="/gatsby-blog-tutorial/">Qiitaに書いたやつ</a></h1></header><div class="post__Body-hsjs07-0 cJcvIG"><article><h1>SwiftでTooltipを描画する</h1><div><span class="frontmatter tag">iOS</span><span class="frontmatter tag">UIKit</span><span class="frontmatter tag">Swift</span></div><div class="frontmatter date"><b>2019年08月31日</b></div><div><p>UIViewに新着と書かれたツールチップを描画します。ライブラリなんか使わずに簡単に描画できます。</p>
+<img width="80" alt="スクリーンショット 2019-08-30 22.21.19.png" src="https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/166241/df0c0118-7d4c-4f51-7167-97f0c784da9b.png">
+<p>まずPaddingラベルです。UILabelでは残念ながらPaddingを指定できないのでサブクラスを作成します。</p>
+<div class="gatsby-highlight" data-language=".swift"><pre class="language-.swift"><code class="language-.swift">final class PaddingLabel: UILabel {
+    var padding: UIEdgeInsets = .zero
+    
+    override func drawText(in rect: CGRect) {
+        super.drawText(in: rect.inset(by: padding))
+    }
+
+    override var intrinsicContentSize: CGSize {
+        var size = super.intrinsicContentSize
+        size.width += padding.left + padding.right
+        size.height += padding.top + padding.bottom
+        return size
+    }
+}</code></pre></div>
+<p>ツールチップの形はUIViewのdraw(_ rect: CGRect)メソッドをOverrideしてコンテクスト描画します。
+といっても別に難しいことはなく、鉛筆でツールチップを描くようにPathで線を引くだけです。
+ツールチップの大きさはUILabelのintrinsicContentSizeによって決められるのでtextを指定してあげればいい感じに表示されます。今回は矢印の位置を下に固定しています。</p>
+<div class="gatsby-highlight" data-language=".swift"><pre class="language-.swift"><code class="language-.swift">final class TooltipView: UIView {
+    private let arrowWidth: CGFloat = 7
+    private let arrowHeight: CGFloat = 4.5
+    private let radius: CGFloat = 4
+    private let fillColor: UIColor = .init(hex: &quot;01b7ff&quot;)
+    private let lineWidth: CGFloat = 2
+    private let strokeColor: UIColor = .white
+    private let titleLabel: PaddingLabel = {
+        let it = PaddingLabel()
+        it.textColor = .white
+        it.font = .systemFont(ofSize: 17)
+        it.text = &quot;新着&quot;
+        it.textAlignment = .center
+        it.padding = UIEdgeInsets(top: 2, left: 4, bottom: 2, right: 4)
+        return it
+    }()
+
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        configure()
+    }
+
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+    }
+
+    override func draw(_ rect: CGRect) {
+        let top: CGFloat = rect.minY + arrowHeight
+        let left: CGFloat = rect.minX + arrowWidth
+        let right: CGFloat = rect.maxX - arrowWidth
+        let bottom: CGFloat = rect.maxY - arrowHeight - lineWidth
+
+        let topLeft = CGPoint(x: left + radius, y: top + radius)
+        let topRight = CGPoint(x: right - radius, y: top + radius)
+        let bottomLeft = CGPoint(x: left + radius, y: bottom - radius)
+        let bottomRight = CGPoint(x: right - radius, y: bottom - radius)
+
+        let path = UIBezierPath()
+
+
+        //     _____________________
+        //   /
+        //  |
+        path.addArc(
+            withCenter: topLeft,
+            radius: radius,
+            startAngle: .pi,
+            endAngle: 3 * .pi / 2,
+            clockwise: true
+        )
+        path.addLine(to: CGPoint(x: topRight.x, y: top))
+
+        //                    __
+        //                       \
+        //                        |
+        //                        |
+
+        path.addArc(
+            withCenter: topRight,
+            radius: radius,
+            startAngle: -.pi / 2,
+            endAngle: 0,
+            clockwise: true
+        )
+        path.addLine(to: CGPoint(x: right, y: bottomRight.y))
+
+        //                        |
+        //                        |
+        //                        /
+        //                     --
+
+        path.addArc(
+            withCenter: bottomRight,
+            radius: radius,
+            startAngle: 0,
+            endAngle: .pi / 2,
+            clockwise: true
+        )
+
+        //  ----------  ---------
+        //            \/
+
+        let centerX = rect.midX
+        path.addLine(to: CGPoint(x: centerX + arrowWidth / 2, y: bottom))
+        path.addLine(to: CGPoint(x: centerX - arrowWidth / 2, y: rect.maxY))
+        path.addLine(to: CGPoint(x: centerX - arrowWidth / 2 + 0.2, y: bottom))
+        path.addLine(to: CGPoint(x: bottomLeft.x, y: bottom))
+
+
+        //  |
+        //  |
+        //  |
+        //   \ _______
+
+        path.addArc(
+            withCenter: bottomLeft,
+            radius: radius,
+            startAngle: .pi / 2,
+            endAngle: .pi,
+            clockwise: true
+        )
+
+        path.addLine(to: CGPoint(x: left, y: topLeft.y))
+
+        fillColor.setFill()
+        strokeColor.setStroke()
+        path.lineWidth = lineWidth
+        path.fill()
+        path.stroke()
+    }
+}
+
+private extension TooltipView {
+    func configure() {
+        addSubview(titleLabel)
+        titleLabel.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            titleLabel.leftAnchor.constraint(equalTo: leftAnchor, constant: arrowWidth),
+            titleLabel.rightAnchor.constraint(equalTo: rightAnchor, constant: -arrowWidth),
+            titleLabel.topAnchor.constraint(equalTo: topAnchor, constant: arrowHeight),
+            titleLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -arrowHeight - lineWidth),
+        ])
+    }
+}</code></pre></div>
+<p>多少のカスタマイズ性を持たせたをgistに公開しました。
+昔はこれどうやって実装するのかわからず悲しかったです。
+(追記) UIBezierPath(roundedRect: cornerRadius: )を使えば周りは1行でかけそう。</p>
+<p>若干カスタマイズできるようにしたやつのソースをGistに乗っけました。
+<a href="https://gist.github.com/churabou/8057aedcf91333bce49aa43a656244ce">https://gist.github.com/churabou/8057aedcf91333bce49aa43a656244ce</a></p>
+<img width="141" alt="スクリーンショット 2019-08-31 14.48.22.png" src="https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/166241/fc4717d7-de8c-4854-47c0-ec91eff98f23.png">
+<img width="141" alt="スクリーンショット 2019-08-31 14.49.12.png" src="https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/166241/29da3b6f-e779-b3d6-b905-f536ae1c32cc.png">
+<img width="142" alt="スクリーンショット 2019-08-31 14.50.13.png" src="https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/166241/fe18d05f-e076-833b-11c4-25b3766039b6.png">
+<img width="141" alt="スクリーンショット 2019-08-31 14.50.38.png" src="https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/166241/d2b768c0-7ee6-3b32-7aaf-249a4f36bf61.png"></div></article></div><footer class="Footer__Wrapper-qhytvz-0 ecpyWB">2020 churabou</footer></div><div id="gatsby-announcer" style="position:absolute;top:0;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0" aria-live="assertive" aria-atomic="true"></div></div><script id="gatsby-script-loader">/*<![CDATA[*/window.pagePath="/6aa8f8fc-5836-52a8-bd46-ae56d1d4f4de";/*]]>*/</script><script id="gatsby-chunk-mapping">/*<![CDATA[*/window.___chunkMapping={"app":["/app-39e439a958f68f704ff4.js"],"component---src-pages-index-js":["/component---src-pages-index-js-7fc9e6e69cd9c2fd2141.js"],"component---src-templates-post-js":["/component---src-templates-post-js-fdb08e0a613579cf49e2.js"]};/*]]>*/</script><script src="/gatsby-blog-tutorial/component---src-templates-post-js-fdb08e0a613579cf49e2.js" async=""></script><script src="/gatsby-blog-tutorial/291a736a4998dc6bb1e7dae6dfd245355445eafd-31b0091029cd517b9523.js" async=""></script><script src="/gatsby-blog-tutorial/app-39e439a958f68f704ff4.js" async=""></script><script src="/gatsby-blog-tutorial/styles-c3197c6105318d4816ab.js" async=""></script><script src="/gatsby-blog-tutorial/framework-995310802c8b4a765741.js" async=""></script><script src="/gatsby-blog-tutorial/webpack-runtime-875864f198321d4f7ff5.js" async=""></script></body></html>

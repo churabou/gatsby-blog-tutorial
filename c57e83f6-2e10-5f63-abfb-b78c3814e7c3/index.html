@@ -1,0 +1,93 @@
+<!DOCTYPE html><html><head><meta charSet="utf-8"/><meta http-equiv="x-ua-compatible" content="ie=edge"/><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/><style data-href="/gatsby-blog-tutorial/styles.63ad972f984b81eb4db4.css">body{margin:0;--theme-color:#2f5b83}code[class*=language-],pre[class*=language-]{color:#f8f8f2;background:none;text-shadow:0 1px rgba(0,0,0,.3);font-family:Consolas,Monaco,Andale Mono,Ubuntu Mono,monospace;font-size:1em;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;word-wrap:normal;line-height:1.5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-ms-hyphens:none;hyphens:none}pre[class*=language-]{padding:1em;margin:.5em 0;overflow:auto;border-radius:.3em}:not(pre)>code[class*=language-],pre[class*=language-]{background:#272822}:not(pre)>code[class*=language-]{padding:.1em;border-radius:.3em;white-space:normal}.token.cdata,.token.comment,.token.doctype,.token.prolog{color:#708090}.token.punctuation{color:#f8f8f2}.token.namespace{opacity:.7}.token.constant,.token.deleted,.token.property,.token.symbol,.token.tag{color:#f92672}.token.boolean,.token.number{color:#ae81ff}.token.attr-name,.token.builtin,.token.char,.token.inserted,.token.selector,.token.string{color:#a6e22e}.language-css .token.string,.style .token.string,.token.entity,.token.operator,.token.url,.token.variable{color:#f8f8f2}.token.atrule,.token.attr-value,.token.class-name,.token.function{color:#e6db74}.token.keyword{color:#66d9ef}.token.important,.token.regex{color:#fd971f}.token.bold,.token.important{font-weight:700}.token.italic{font-style:italic}.token.entity{cursor:help}</style><meta name="generator" content="Gatsby 2.20.36"/><style data-styled="" data-styled-version="5.1.0">.dmeTcP{background:var(--theme-color);margin:0px;padding:0.5em 1em;color:white;}/*!sc*/
+.dmeTcP a{-webkit-text-decoration:none;text-decoration:none;color:white;}/*!sc*/
+data-styled.g1[id="Header__Wrapper-sc-1isb4n6-0"]{content:"dmeTcP,"}/*!sc*/
+.ecpyWB{background:#999;padding:1em;color:white;}/*!sc*/
+data-styled.g2[id="Footer__Wrapper-qhytvz-0"]{content:"ecpyWB,"}/*!sc*/
+.cJcvIG{background:#f4f4f4;padding:2em;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-box-pack:space-around;-webkit-justify-content:space-around;-ms-flex-pack:space-around;justify-content:space-around;-webkit-flex-wrap:wrap;-ms-flex-wrap:wrap;flex-wrap:wrap;word-wrap:break-word;}/*!sc*/
+.cJcvIG > article{width:60%;background:white;border-radius:2px;padding:1.5em;margin-bottom:1.5em;}/*!sc*/
+@media screen and (max-width:768px){.cJcvIG > article{width:100%;}}/*!sc*/
+.cJcvIG > article div:last-child img{max-width:100%;}/*!sc*/
+.cJcvIG > article div:last-child a{color:var(--theme-color);-webkit-text-decoration:none;text-decoration:none;}/*!sc*/
+.cJcvIG .frontmatter.tag{display:inline-block;background:var(--theme-color);color:white;margin:0 0.25em 0.25em 0;padding:0.25em;}/*!sc*/
+.cJcvIG .frontmatter.date{margin-top:0.5em;color:#666;}/*!sc*/
+data-styled.g4[id="post__Body-hsjs07-0"]{content:"cJcvIG,"}/*!sc*/
+</style><link as="script" rel="preload" href="/gatsby-blog-tutorial/webpack-runtime-875864f198321d4f7ff5.js"/><link as="script" rel="preload" href="/gatsby-blog-tutorial/framework-995310802c8b4a765741.js"/><link as="script" rel="preload" href="/gatsby-blog-tutorial/styles-c3197c6105318d4816ab.js"/><link as="script" rel="preload" href="/gatsby-blog-tutorial/app-39e439a958f68f704ff4.js"/><link as="script" rel="preload" href="/gatsby-blog-tutorial/291a736a4998dc6bb1e7dae6dfd245355445eafd-31b0091029cd517b9523.js"/><link as="script" rel="preload" href="/gatsby-blog-tutorial/component---src-templates-post-js-fdb08e0a613579cf49e2.js"/><link as="fetch" rel="preload" href="/gatsby-blog-tutorial/page-data/c57e83f6-2e10-5f63-abfb-b78c3814e7c3/page-data.json" crossorigin="anonymous"/><link as="fetch" rel="preload" href="/gatsby-blog-tutorial/page-data/app-data.json" crossorigin="anonymous"/></head><body><div id="___gatsby"><div style="outline:none" tabindex="-1" id="gatsby-focus-wrapper"><header class="Header__Wrapper-sc-1isb4n6-0 dmeTcP"><h1><a href="/gatsby-blog-tutorial/">Qiitaに書いたやつ</a></h1></header><div class="post__Body-hsjs07-0 cJcvIG"><article><h1>SwiftUIとXcodeのPreviewでオートレイアウトをリアルタイムで確認しながら実装できて感動した</h1><div><span class="frontmatter tag">Xcode</span><span class="frontmatter tag">iOS</span><span class="frontmatter tag">AutoLayout</span><span class="frontmatter tag">Swift</span><span class="frontmatter tag">SwiftUI</span></div><div class="frontmatter date"><b>2019年10月16日</b></div><div><p>先週くらいにXcode11に上げてようやく触り始めたのですが、感動してしまったので動画に撮りました。</p>
+<p><img src="https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/166241/95f50b09-6e2c-2346-9cd3-db6930ea93be.gif" alt="preview.gif"></p>
+<p>なんかUIViewRepresentableを使えば、SwiftUIでUIKitのViewを使えますよね</p>
+<div class="gatsby-highlight" data-language=".swift"><pre class="language-.swift"><code class="language-.swift">struct AutoLayout: UIViewRepresentable {
+    func updateUIView(_ view: AutoLayoutView, context: UIViewRepresentableContext&lt;AutoLayout&gt;) {}
+    
+    func makeUIView(context: UIViewRepresentableContext&lt;AutoLayout&gt;) -&gt; AutoLayoutView {
+        AutoLayoutView()
+    }
+}</code></pre></div>
+<p>もちろんPreviewにも表示されるわけです。</p>
+<div class="gatsby-highlight" data-language=".swift"><pre class="language-.swift"><code class="language-.swift">struct AutoLayout_Previews: PreviewProvider {
+    static var previews: some View {
+        AutoLayout()
+            .previewLayout(.fixed(width: 414, height: 300))
+    }
+}</code></pre></div>
+<p>Twitterを見ているとベータ版を触られてる人たちがコードレイアウトで書いても良さそうとか言ってたので、
+オートレイアウトを試してみようといじってました。
+でAutoLayoutViewの内部でコードでオートレイアウトを指定してあげたんですが、なんかpreviewに即反映されたんですよ。</p>
+<div class="gatsby-highlight" data-language=".swift"><pre class="language-.swift"><code class="language-.swift">final class AutoLayoutView: UIView {
+    required init?(coder: NSCoder) {
+        fatalError(&quot;init(coder:) has not been implemented&quot;)
+    }
+
+    private let label = UILabel()
+
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        initializeConstraints()
+    }
+
+    func initializeConstraints() {
+        // label.leftAnchor....
+    }
+}</code></pre></div>
+<p>もしやと思いオートレイアウトをコードで書く用の自作Extensionを追加していじってみると、これも反映されました。
+それが冒頭のgifです。</p>
+<hr>
+<p>勤務先の企業でSwiftUIをメインのアプリで使えるようになるには後２年程かかるのでまだまだオートレイアウトを使わなければいけないのですが、このPreview機能の恩恵は大きそうです。</p>
+<hr>
+<p>ソースはこんな感じです。
+メソッドチェーンの ExtensionはNSLayoutAnchorをラップしているだけです。</p>
+<div class="gatsby-highlight" data-language=".swift"><pre class="language-.swift"><code class="language-.swift">final class AutoLayoutView: UIView {
+    required init?(coder: NSCoder) {
+        fatalError(&quot;init(coder:) has not been implemented&quot;)
+    }
+
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        initializeView()
+        initializeConstraints()
+    }
+    
+    private let iconImageView = UIImageView()
+    private let nameLabel = UILabel()
+
+    func initializeView() {
+        nameLabel.text = &quot;abouch&quot;
+        nameLabel.backgroundColor = .green
+        addSubview(nameLabel)
+
+        iconImageView.backgroundColor = .red
+        iconImageView.layer.cornerRadius = 20
+        addSubview(iconImageView)
+    }
+    
+    func initializeConstraints() {
+        iconImageView.chura.layout
+            .size(100)
+            .left(24)
+            .centerY(self)
+        
+        nameLabel.chura.layout
+            .left(iconImageView.rightAnchor + 24)
+            .top(iconImageView.topAnchor + 16)
+            .right(-24)
+            .height(60)
+    }
+}</code></pre></div></div></article></div><footer class="Footer__Wrapper-qhytvz-0 ecpyWB">2020 churabou</footer></div><div id="gatsby-announcer" style="position:absolute;top:0;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0" aria-live="assertive" aria-atomic="true"></div></div><script id="gatsby-script-loader">/*<![CDATA[*/window.pagePath="/c57e83f6-2e10-5f63-abfb-b78c3814e7c3";/*]]>*/</script><script id="gatsby-chunk-mapping">/*<![CDATA[*/window.___chunkMapping={"app":["/app-39e439a958f68f704ff4.js"],"component---src-pages-index-js":["/component---src-pages-index-js-7fc9e6e69cd9c2fd2141.js"],"component---src-templates-post-js":["/component---src-templates-post-js-fdb08e0a613579cf49e2.js"]};/*]]>*/</script><script src="/gatsby-blog-tutorial/component---src-templates-post-js-fdb08e0a613579cf49e2.js" async=""></script><script src="/gatsby-blog-tutorial/291a736a4998dc6bb1e7dae6dfd245355445eafd-31b0091029cd517b9523.js" async=""></script><script src="/gatsby-blog-tutorial/app-39e439a958f68f704ff4.js" async=""></script><script src="/gatsby-blog-tutorial/styles-c3197c6105318d4816ab.js" async=""></script><script src="/gatsby-blog-tutorial/framework-995310802c8b4a765741.js" async=""></script><script src="/gatsby-blog-tutorial/webpack-runtime-875864f198321d4f7ff5.js" async=""></script></body></html>

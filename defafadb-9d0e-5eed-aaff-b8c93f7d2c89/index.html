@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><meta charSet="utf-8"/><meta http-equiv="x-ua-compatible" content="ie=edge"/><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/><style data-href="/gatsby-blog-tutorial/styles.63ad972f984b81eb4db4.css">body{margin:0;--theme-color:#2f5b83}code[class*=language-],pre[class*=language-]{color:#f8f8f2;background:none;text-shadow:0 1px rgba(0,0,0,.3);font-family:Consolas,Monaco,Andale Mono,Ubuntu Mono,monospace;font-size:1em;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;word-wrap:normal;line-height:1.5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-ms-hyphens:none;hyphens:none}pre[class*=language-]{padding:1em;margin:.5em 0;overflow:auto;border-radius:.3em}:not(pre)>code[class*=language-],pre[class*=language-]{background:#272822}:not(pre)>code[class*=language-]{padding:.1em;border-radius:.3em;white-space:normal}.token.cdata,.token.comment,.token.doctype,.token.prolog{color:#708090}.token.punctuation{color:#f8f8f2}.token.namespace{opacity:.7}.token.constant,.token.deleted,.token.property,.token.symbol,.token.tag{color:#f92672}.token.boolean,.token.number{color:#ae81ff}.token.attr-name,.token.builtin,.token.char,.token.inserted,.token.selector,.token.string{color:#a6e22e}.language-css .token.string,.style .token.string,.token.entity,.token.operator,.token.url,.token.variable{color:#f8f8f2}.token.atrule,.token.attr-value,.token.class-name,.token.function{color:#e6db74}.token.keyword{color:#66d9ef}.token.important,.token.regex{color:#fd971f}.token.bold,.token.important{font-weight:700}.token.italic{font-style:italic}.token.entity{cursor:help}</style><meta name="generator" content="Gatsby 2.20.36"/><style data-styled="" data-styled-version="5.1.0">.dmeTcP{background:var(--theme-color);margin:0px;padding:0.5em 1em;color:white;}/*!sc*/
+.dmeTcP a{-webkit-text-decoration:none;text-decoration:none;color:white;}/*!sc*/
+data-styled.g1[id="Header__Wrapper-sc-1isb4n6-0"]{content:"dmeTcP,"}/*!sc*/
+.ecpyWB{background:#999;padding:1em;color:white;}/*!sc*/
+data-styled.g2[id="Footer__Wrapper-qhytvz-0"]{content:"ecpyWB,"}/*!sc*/
+.cJcvIG{background:#f4f4f4;padding:2em;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-box-pack:space-around;-webkit-justify-content:space-around;-ms-flex-pack:space-around;justify-content:space-around;-webkit-flex-wrap:wrap;-ms-flex-wrap:wrap;flex-wrap:wrap;word-wrap:break-word;}/*!sc*/
+.cJcvIG > article{width:60%;background:white;border-radius:2px;padding:1.5em;margin-bottom:1.5em;}/*!sc*/
+@media screen and (max-width:768px){.cJcvIG > article{width:100%;}}/*!sc*/
+.cJcvIG > article div:last-child img{max-width:100%;}/*!sc*/
+.cJcvIG > article div:last-child a{color:var(--theme-color);-webkit-text-decoration:none;text-decoration:none;}/*!sc*/
+.cJcvIG .frontmatter.tag{display:inline-block;background:var(--theme-color);color:white;margin:0 0.25em 0.25em 0;padding:0.25em;}/*!sc*/
+.cJcvIG .frontmatter.date{margin-top:0.5em;color:#666;}/*!sc*/
+data-styled.g4[id="post__Body-hsjs07-0"]{content:"cJcvIG,"}/*!sc*/
+</style><link as="script" rel="preload" href="/gatsby-blog-tutorial/webpack-runtime-875864f198321d4f7ff5.js"/><link as="script" rel="preload" href="/gatsby-blog-tutorial/framework-995310802c8b4a765741.js"/><link as="script" rel="preload" href="/gatsby-blog-tutorial/styles-c3197c6105318d4816ab.js"/><link as="script" rel="preload" href="/gatsby-blog-tutorial/app-39e439a958f68f704ff4.js"/><link as="script" rel="preload" href="/gatsby-blog-tutorial/291a736a4998dc6bb1e7dae6dfd245355445eafd-31b0091029cd517b9523.js"/><link as="script" rel="preload" href="/gatsby-blog-tutorial/component---src-templates-post-js-fdb08e0a613579cf49e2.js"/><link as="fetch" rel="preload" href="/gatsby-blog-tutorial/page-data/defafadb-9d0e-5eed-aaff-b8c93f7d2c89/page-data.json" crossorigin="anonymous"/><link as="fetch" rel="preload" href="/gatsby-blog-tutorial/page-data/app-data.json" crossorigin="anonymous"/></head><body><div id="___gatsby"><div style="outline:none" tabindex="-1" id="gatsby-focus-wrapper"><header class="Header__Wrapper-sc-1isb4n6-0 dmeTcP"><h1><a href="/gatsby-blog-tutorial/">Qiitaに書いたやつ</a></h1></header><div class="post__Body-hsjs07-0 cJcvIG"><article><h1>Swift5 UILabelに画像(UIImage)を表示する NSAttributedString NSTextAttachment</h1><div><span class="frontmatter tag">Xcode</span><span class="frontmatter tag">iOS</span><span class="frontmatter tag">Swift</span></div><div class="frontmatter date"><b>2019年05月10日</b></div><div><p>qiitaの記事がobjcだったのでサクッとコピペで動かしたい方に最新版のコードを共有</p>
+<h3>UILabelにUIImageを表示する方法</h3>
+<p>①NSTextAttachmentを作成する。
+②NSTextAttachmentからNSAttributedStringを作成する。
+③UILabelのattributedTextに指定する。</p>
+<p>画像のサイズや表示位置は①で調整します</p>
+<p>今回は実際に起こりそうなものとして、ラベルの末尾に画像を表示してみます</p>
+<img width="286" alt="スクリーンショット 2019-05-10 11.59.12.png" src="https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/166241/9499259e-9a49-9ead-4243-78503e762f0f.png">
+<div class="gatsby-highlight" data-language=".swift"><pre class="language-.swift"><code class="language-.swift">    override func viewDidLoad() {
+        super.viewDidLoad()
+               
+        let text = &quot;labelに犬を表示する&quot;
+        let image = UIImage(named: &quot;dog.jpg&quot;)!
+        let font: UIFont = .systemFont(ofSize: 30)
+        let size = CGSize(width: 30, height: 30)
+        
+        let attachment = NSTextAttachment()
+        attachment.image = image
+
+        let y = (font.capHeight-size.height).rounded() / 2
+        attachment.bounds.origin = CGPoint(x: 0, y: y)
+        attachment.bounds.size = size
+        
+        let imageAttribute = NSAttributedString(attachment: attachment)
+        let mutableString = NSMutableAttributedString(string: text)
+        mutableString.insert(imageAttribute, at: text.count)
+        
+        let label = UILabel()
+        view.addSubview(label)
+        label.textAlignment = .center
+        label.frame.size = .init(width: view.bounds.width-20, height: 50)
+        label.center = view.center
+        label.font = font
+        label.attributedText = mutableString
+    }  </code></pre></div>
+<p>attachmentにsizeを指定すると表示されます。ただそれだと、画像が表示される高さがずれてしまうので、
+今回は中央に揃うように高さを調整しました。</p>
+<p>当たり前ですがinsertする場所をずらせば中央に表示できます
+<img width="288" alt="スクリーンショット 2019-05-10 12.00.20.png" src="https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/166241/7db10ae9-d48d-8685-ff35-bc21c3237a9b.png"></p>
+<p>デスクトップに犬の写真しかなかったですが、例えば仮想通貨の保有量＋💶（通過のアイコン）スコア＋👑（王冠やメダル）などが考えられると思います。</p>
+<p>結構コード量が多くてとっつきにくい気もします。</p>
+<h3>Extension</h3>
+<p>うまい感じに共通化したいですが高さを揃えるにはUILabelのfontと表示したい画像のサイズの情報が必要になってきます。
+UILabelのextensionにするのもなんか違う気がしますが一応</p>
+<div class="gatsby-highlight" data-language=".swift"><pre class="language-.swift"><code class="language-.swift">    label.text = &quot;labelに犬を表示する&quot;
+    label.insertImage(UIImage(named: &quot;dog.jpg&quot;)!, at: label.text!.count, alignment: .center)</code></pre></div>
+<p>sizeはデフォルトでimage.sizeを指定します。</p>
+<div class="gatsby-highlight" data-language=".swift"><pre class="language-.swift"><code class="language-.swift">    label.insertImage(UIImage(named: &quot;dog.jpg&quot;)!, at: label.text!.count, size: CGSize(width: 30, height: 30), alignment: .center) </code></pre></div>
+<div class="gatsby-highlight" data-language=".swift"><pre class="language-.swift"><code class="language-.swift">extension UILabel {
+    func insertImage(_ image: UIImage, at index: Int, size: CGSize? = nil, alignment: NSTextAttachment.VerticalAlignment = .center) {
+        let attr = attributedText as? NSMutableAttributedString ?? NSMutableAttributedString(string: text ?? &quot;&quot;)
+        let attachment = NSTextAttachment(image: image, font: font, size: size ?? image.size, alignment: alignment)
+        attr.insert(NSAttributedString(attachment: attachment), at: index)
+        attributedText = attr
+    }
+}
+
+extension NSTextAttachment {
+    convenience init(image: UIImage, font: UIFont, size: CGSize, alignment: VerticalAlignment) {
+        self.init()
+        self.image = image
+        let y: CGFloat
+        switch alignment {
+        case .top:
+            y = font.capHeight - size.height
+        case .bottom:
+            y = font.descender
+        case .center:
+            y = (font.capHeight - size.height).rounded() / 2
+        case .baseline:
+            y = 0
+        }
+        bounds.origin = CGPoint(x: 0, y: y)
+        bounds.size = size
+    }
+    
+    enum VerticalAlignment {
+        case bottom, baseline, center, top
+    }
+}</code></pre></div>
+<p>ラベルの上にsizeや表示位置の調整については<a href="https://stackoverflow.com/questions/26105803/center-nstextattachment-image-next-to-single-line-uilabel">こちら</a>を参考にしました。</p>
+<img src="https://i.stack.imgur.com/EtmBW.png">
+<p>引用: (<a href="https://stackoverflow.com/questions/26105803/center-nstextattachment-image-next-to-single-line-uilabel">https://stackoverflow.com/questions/26105803/center-nstextattachment-image-next-to-single-line-uilabel</a>)</p>
+<p>ちなみにy座標は反転していて、UIFont.desendentは-の値を返します。</p>
+<hr>
+<h3>画像ともじのマージンを調整したい場合</h3>
+<p>テキストと画像の間にのマージンを調整したい場合は
+スペースを入れる、fontSizeを調整する、もしくは最悪の場合Paddingをつけた画像を生成する必要があるのかなと思いました。</p>
+<div class="gatsby-highlight" data-language=".swift"><pre class="language-.swift"><code class="language-.swift">    func makeImageWithPadding(image: UIImage, padding: UIEdgeInsets) -&gt; UIImage {
+        UIGraphicsBeginImageContextWithOptions(image.size, false, UIScreen.main.scale)
+        UIGraphicsBeginImageContext(.init(
+                width: image.size.width + padding.left + padding.right,
+                height: image.size.height + padding.top + padding.bottom
+            )
+        )
+        image.draw(at: .init(x: padding.left, y: padding.top))
+        let image = UIGraphicsGetImageFromCurrentImageContext()!
+        UIGraphicsEndImageContext()
+        return image
+    }</code></pre></div>
+<h3>(追記) Swift5で強化された機能をつかうと</h3>
+<p><a href="https://qiita.com/fmtonakai/items/2e685e3c719d7fda7fc7">https://qiita.com/fmtonakai/items/2e685e3c719d7fda7fc7</a></p>
+<div class="gatsby-highlight" data-language=".swift"><pre class="language-.swift"><code class="language-.swift">let attrStr: AttributedString = &quot;今日はいい天気だ\(image)&quot;</code></pre></div>
+<p>こうゆう実装もできるよう</p></div></article></div><footer class="Footer__Wrapper-qhytvz-0 ecpyWB">2020 churabou</footer></div><div id="gatsby-announcer" style="position:absolute;top:0;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0" aria-live="assertive" aria-atomic="true"></div></div><script id="gatsby-script-loader">/*<![CDATA[*/window.pagePath="/defafadb-9d0e-5eed-aaff-b8c93f7d2c89";/*]]>*/</script><script id="gatsby-chunk-mapping">/*<![CDATA[*/window.___chunkMapping={"app":["/app-39e439a958f68f704ff4.js"],"component---src-pages-index-js":["/component---src-pages-index-js-7fc9e6e69cd9c2fd2141.js"],"component---src-templates-post-js":["/component---src-templates-post-js-fdb08e0a613579cf49e2.js"]};/*]]>*/</script><script src="/gatsby-blog-tutorial/component---src-templates-post-js-fdb08e0a613579cf49e2.js" async=""></script><script src="/gatsby-blog-tutorial/291a736a4998dc6bb1e7dae6dfd245355445eafd-31b0091029cd517b9523.js" async=""></script><script src="/gatsby-blog-tutorial/app-39e439a958f68f704ff4.js" async=""></script><script src="/gatsby-blog-tutorial/styles-c3197c6105318d4816ab.js" async=""></script><script src="/gatsby-blog-tutorial/framework-995310802c8b4a765741.js" async=""></script><script src="/gatsby-blog-tutorial/webpack-runtime-875864f198321d4f7ff5.js" async=""></script></body></html>

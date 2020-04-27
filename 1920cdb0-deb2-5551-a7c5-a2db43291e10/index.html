@@ -1,0 +1,137 @@
+<!DOCTYPE html><html><head><meta charSet="utf-8"/><meta http-equiv="x-ua-compatible" content="ie=edge"/><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/><style data-href="/gatsby-blog-tutorial/styles.63ad972f984b81eb4db4.css">body{margin:0;--theme-color:#2f5b83}code[class*=language-],pre[class*=language-]{color:#f8f8f2;background:none;text-shadow:0 1px rgba(0,0,0,.3);font-family:Consolas,Monaco,Andale Mono,Ubuntu Mono,monospace;font-size:1em;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;word-wrap:normal;line-height:1.5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-ms-hyphens:none;hyphens:none}pre[class*=language-]{padding:1em;margin:.5em 0;overflow:auto;border-radius:.3em}:not(pre)>code[class*=language-],pre[class*=language-]{background:#272822}:not(pre)>code[class*=language-]{padding:.1em;border-radius:.3em;white-space:normal}.token.cdata,.token.comment,.token.doctype,.token.prolog{color:#708090}.token.punctuation{color:#f8f8f2}.token.namespace{opacity:.7}.token.constant,.token.deleted,.token.property,.token.symbol,.token.tag{color:#f92672}.token.boolean,.token.number{color:#ae81ff}.token.attr-name,.token.builtin,.token.char,.token.inserted,.token.selector,.token.string{color:#a6e22e}.language-css .token.string,.style .token.string,.token.entity,.token.operator,.token.url,.token.variable{color:#f8f8f2}.token.atrule,.token.attr-value,.token.class-name,.token.function{color:#e6db74}.token.keyword{color:#66d9ef}.token.important,.token.regex{color:#fd971f}.token.bold,.token.important{font-weight:700}.token.italic{font-style:italic}.token.entity{cursor:help}</style><meta name="generator" content="Gatsby 2.20.36"/><style data-styled="" data-styled-version="5.1.0">.dmeTcP{background:var(--theme-color);margin:0px;padding:0.5em 1em;color:white;}/*!sc*/
+.dmeTcP a{-webkit-text-decoration:none;text-decoration:none;color:white;}/*!sc*/
+data-styled.g1[id="Header__Wrapper-sc-1isb4n6-0"]{content:"dmeTcP,"}/*!sc*/
+.ecpyWB{background:#999;padding:1em;color:white;}/*!sc*/
+data-styled.g2[id="Footer__Wrapper-qhytvz-0"]{content:"ecpyWB,"}/*!sc*/
+.cJcvIG{background:#f4f4f4;padding:2em;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-box-pack:space-around;-webkit-justify-content:space-around;-ms-flex-pack:space-around;justify-content:space-around;-webkit-flex-wrap:wrap;-ms-flex-wrap:wrap;flex-wrap:wrap;word-wrap:break-word;}/*!sc*/
+.cJcvIG > article{width:60%;background:white;border-radius:2px;padding:1.5em;margin-bottom:1.5em;}/*!sc*/
+@media screen and (max-width:768px){.cJcvIG > article{width:100%;}}/*!sc*/
+.cJcvIG > article div:last-child img{max-width:100%;}/*!sc*/
+.cJcvIG > article div:last-child a{color:var(--theme-color);-webkit-text-decoration:none;text-decoration:none;}/*!sc*/
+.cJcvIG .frontmatter.tag{display:inline-block;background:var(--theme-color);color:white;margin:0 0.25em 0.25em 0;padding:0.25em;}/*!sc*/
+.cJcvIG .frontmatter.date{margin-top:0.5em;color:#666;}/*!sc*/
+data-styled.g4[id="post__Body-hsjs07-0"]{content:"cJcvIG,"}/*!sc*/
+</style><link as="script" rel="preload" href="/gatsby-blog-tutorial/webpack-runtime-875864f198321d4f7ff5.js"/><link as="script" rel="preload" href="/gatsby-blog-tutorial/framework-995310802c8b4a765741.js"/><link as="script" rel="preload" href="/gatsby-blog-tutorial/styles-c3197c6105318d4816ab.js"/><link as="script" rel="preload" href="/gatsby-blog-tutorial/app-39e439a958f68f704ff4.js"/><link as="script" rel="preload" href="/gatsby-blog-tutorial/291a736a4998dc6bb1e7dae6dfd245355445eafd-31b0091029cd517b9523.js"/><link as="script" rel="preload" href="/gatsby-blog-tutorial/component---src-templates-post-js-fdb08e0a613579cf49e2.js"/><link as="fetch" rel="preload" href="/gatsby-blog-tutorial/page-data/1920cdb0-deb2-5551-a7c5-a2db43291e10/page-data.json" crossorigin="anonymous"/><link as="fetch" rel="preload" href="/gatsby-blog-tutorial/page-data/app-data.json" crossorigin="anonymous"/></head><body><div id="___gatsby"><div style="outline:none" tabindex="-1" id="gatsby-focus-wrapper"><header class="Header__Wrapper-sc-1isb4n6-0 dmeTcP"><h1><a href="/gatsby-blog-tutorial/">Qiitaに書いたやつ</a></h1></header><div class="post__Body-hsjs07-0 cJcvIG"><article><h1>Web Animations API を使ってJavaScriptでAnimationを実装する</h1><div><span class="frontmatter tag">JavaScript</span><span class="frontmatter tag">CSS3</span><span class="frontmatter tag">TypeScript</span><span class="frontmatter tag">Vue.js</span><span class="frontmatter tag">React</span></div><div class="frontmatter date"><b>2019年09月11日</b></div><div><p>JavaScriptでアニメーションを実装しようと調べたところ、Web Animation API というものがあるようです。
+MDNを見る限りこのAPIはまだまだ新しいようで、Qiitaにも記事が少なかったのでチートシート的にまとめてみます。</p>
+<h2>Web Animation API とは</h2>
+<p>choromeやsafariなどの一部プラウザで対応してたり対応してなかったりするようです。</p>
+<p>polyfillのスクリプトを読み込むと問題なく使えるようです。どうやらWeb Animation自体は数年前から存在しているようです。</p>
+<div class="gatsby-highlight" data-language=".js"><pre class="language-.js"><code class="language-.js">&lt;script src=&quot;https://cdn.jsdelivr.net/web-animations/latest/web-animations.min.js&quot;&gt;&lt;/script&gt;</code></pre></div>
+<div class="gatsby-highlight" data-language="text"><pre class="language-text"><code class="language-text">npm install web-animations-js</code></pre></div>
+<h2>基本のアニメーション</h2>
+<div class="gatsby-highlight" data-language=".js"><pre class="language-.js"><code class="language-.js">const element = document.body;
+element.animate({ backgroundColor: [&#39;red&#39;, &#39;blue&#39;] }, 3000);</code></pre></div>
+<h3>Element.animate</h3>
+<p><a href="https://developer.mozilla.org/ja/docs/Web/API/Element/animate">https://developer.mozilla.org/ja/docs/Web/API/Element/animate</a></p>
+<p>animationを実行しanimation object を返します。</p>
+<p><code class="language-text">element.animate(keyframes, option)</code>となっており</p>
+<p>第一引数のkeyframesはいくつかフォーマットが用意されています。</p>
+<div class="gatsby-highlight" data-language=".js"><pre class="language-.js"><code class="language-.js">const keyframes = [
+  { // from
+    opacity: 0,
+    color: &quot;#fff&quot;
+  }, 
+  { // to
+    opacity: 1,
+ ​   color: &quot;#000&quot;
+  }
+]</code></pre></div>
+<div class="gatsby-highlight" data-language=".js"><pre class="language-.js"><code class="language-.js">const keyframes = {
+  opacity: [ 0, 1 ],          // [ from, to ]
+  color:   [ &quot;#fff&quot;, &quot;#000&quot; ] // [ from, to ]
+}</code></pre></div>
+<p><a href="https://developer.mozilla.org/en-US/docs/Web/API/Web_Animations_API/Keyframe_Formats">フォーマットについて</a></p>
+<p>第二引数のoptionにはmsの数値かoptionオブジェクトを渡します。</p>
+<div class="gatsby-highlight" data-language=".js"><pre class="language-.js"><code class="language-.js">element.animate(keyframes, option)</code></pre></div>
+<h2>アニメーションのOption</h2>
+<p>第二引数に渡すOptionについてです。</p>
+<div class="gatsby-highlight" data-language=".js"><pre class="language-.js"><code class="language-.js">const option = {
+  duration: 1000,
+  easing: &#39;ease-in&#39;,
+  iterations: &#39;Infinity&#39;,
+  fill: &#39;backwards&#39;,
+};</code></pre></div>
+<h3>easing</h3>
+<p>アニメーションカーブを指定できます。デフォルトでは<code class="language-text">liner</code>になります。
+<code class="language-text">Ease-in</code> <code class="language-text">ease-in-out</code>などの他にも<code class="language-text">steps(1, end)</code> <code class="language-text">cubic-bezier(0, 0, 0.58, 1)</code>なども指定できます。</p>
+<ul>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/API/EffectTiming/easing">https://developer.mozilla.org/en-US/docs/Web/API/EffectTiming/easing</a></li>
+</ul>
+<h3>Iterations</h3>
+<p>アニメーションの回数を指定できます。デフォルトは<code class="language-text">1</code>です。
+無限に繰り返すには<code class="language-text">Infinity</code>を指定します。</p>
+<h3>delay</h3>
+<p>名前の通り指定秒アニメーションを遅らせることができます。</p>
+<h3>fill</h3>
+<p>アニメーション終了後にアニメーション終了時の状態を維持するには<code class="language-text">forwards</code>を、
+アニメーション開始前の状態に戻る場合は<code class="language-text">backwords</code>を指定します。</p>
+<hr>
+<p>大抵の場合は上記を指定できれば十分だと思いますが、その他にもいくつかオプションがあるようです。</p>
+<p><a href="https://drafts.csswg.org/web-animations/#updating-animationeffect-timing">https://drafts.csswg.org/web-animations/#updating-animationeffect-timing</a></p>
+<h2>Animation Object</h2>
+<p><code class="language-text">Animation</code> コンストラクタを使ってAnimationオブジェクトを生成します。
+<code class="language-text">element.animate</code>メソッドではanimationが即座に実行されてしまいますが、Animationインターフェースを使う場合は明示的に<code class="language-text">play()</code>メソッドを呼ぶ必要があります。</p>
+<div class="gatsby-highlight" data-language=".js"><pre class="language-.js"><code class="language-.js">  const element = document.getElementById(&#39;body&#39;);
+  const effect = new KeyframeEffect(
+    element,
+    { backgroundColor: [&#39;blue&#39;, &#39;orange&#39;]},
+    1000
+  );
+ 
+ const animation = new Animation(effect, document.timeline)
+
+ animation.play()</code></pre></div>
+<p><a href="https://developer.mozilla.org/ja/docs/Web/API/Animation/Animation">Animation</a></p>
+<p>第二引数はデフォルトでdocument.timelineのようです。</p>
+<p><a href="https://developer.mozilla.org/ja/docs/Web/API/KeyframeEffecthttps://developer.mozilla.org/ja/docs/Web/API/KeyframeEffect">KeyframeEffect</a></p>
+<h3>メソッド</h3>
+<p>Animationオブジェクトは以下の制御メソッドが使えます。</p>
+<ul>
+<li><code class="language-text">play()</code> 再生・再開する</li>
+<li><code class="language-text">pause()</code> 一時停止する</li>
+<li><code class="language-text">reverse()</code> 逆再生する</li>
+<li><code class="language-text">cancel()</code> 中断する</li>
+<li><code class="language-text">finish()</code> </li>
+</ul>
+<p><a href="https://developer.mozilla.org/ja/docs/Web/API/Animation#%E3%83%A1%E3%82%BD%E3%83%83%E3%83%89">https://developer.mozilla.org/ja/docs/Web/API/Animation#%E3%83%A1%E3%82%BD%E3%83%83%E3%83%89</a></p>
+<h3>アニメーションの状態</h3>
+<p>Animation.playStateプロパティーを参照するとアニメーションの状態が分かります。</p>
+<table>
+<thead>
+<tr>
+<th>value</th>
+<th>説明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>idle</td>
+<td>アニメーション前</td>
+</tr>
+<tr>
+<td>running</td>
+<td>アニメーション中</td>
+</tr>
+<tr>
+<td>paused</td>
+<td>中断</td>
+</tr>
+<tr>
+<td>finished</td>
+<td>アニメーション完了</td>
+</tr>
+</tbody>
+</table>
+<h3>イベントハンドラ</h3>
+<p>アニメーション終了時のコールバックを指定できます。</p>
+<div class="gatsby-highlight" data-language=".js"><pre class="language-.js"><code class="language-.js">animation.onfinish = () =&gt; console.log(&#39;finished&#39;);</code></pre></div>
+<p>キャンセル時のイベントも指定できます。</p>
+<div class="gatsby-highlight" data-language=".js"><pre class="language-.js"><code class="language-.js">animation.oncancel = () =&gt; console.log(&#39;canceled&#39;);</code></pre></div>
+<h2>参考</h2>
+<ul>
+<li><a href="https://developers.google.com/web/updates/2015/10/web-animations-resources">https://developers.google.com/web/updates/2015/10/web-animations-resources</a></li>
+<li><a href="https://danielcwilson.com/blog/2015/07/animations-part-1/">https://danielcwilson.com/blog/2015/07/animations-part-1/</a></li>
+<li><a href="https://drafts.csswg.org/web-animations/#the-animation-interface">https://drafts.csswg.org/web-animations/#the-animation-interface</a></li>
+</ul>
+<hr>
+<p>簡単なAnimationはCSSの方が簡単で良さそうですが、プログラムから制御したい場面ってやっぱりありますよね。ルーレットアプリを作るときとか。今後も色々変更がありそうです。</p></div></article></div><footer class="Footer__Wrapper-qhytvz-0 ecpyWB">2020 churabou</footer></div><div id="gatsby-announcer" style="position:absolute;top:0;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0" aria-live="assertive" aria-atomic="true"></div></div><script id="gatsby-script-loader">/*<![CDATA[*/window.pagePath="/1920cdb0-deb2-5551-a7c5-a2db43291e10";/*]]>*/</script><script id="gatsby-chunk-mapping">/*<![CDATA[*/window.___chunkMapping={"app":["/app-39e439a958f68f704ff4.js"],"component---src-pages-index-js":["/component---src-pages-index-js-7fc9e6e69cd9c2fd2141.js"],"component---src-templates-post-js":["/component---src-templates-post-js-fdb08e0a613579cf49e2.js"]};/*]]>*/</script><script src="/gatsby-blog-tutorial/component---src-templates-post-js-fdb08e0a613579cf49e2.js" async=""></script><script src="/gatsby-blog-tutorial/291a736a4998dc6bb1e7dae6dfd245355445eafd-31b0091029cd517b9523.js" async=""></script><script src="/gatsby-blog-tutorial/app-39e439a958f68f704ff4.js" async=""></script><script src="/gatsby-blog-tutorial/styles-c3197c6105318d4816ab.js" async=""></script><script src="/gatsby-blog-tutorial/framework-995310802c8b4a765741.js" async=""></script><script src="/gatsby-blog-tutorial/webpack-runtime-875864f198321d4f7ff5.js" async=""></script></body></html>
