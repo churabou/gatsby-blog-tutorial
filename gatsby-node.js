@@ -3,20 +3,21 @@ const path = require("path")
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
 
-  const result = await graphql(
-    `
-      query {
-        allMarkdownRemark {
-          edges {
-            node {
-              id
-              html
+  const result = await graphql(`
+    query {
+      allMarkdownRemark {
+        edges {
+          node {
+            id
+            html
+            frontmatter {
+              tags
             }
           }
         }
       }
-    `
-  )
+    }
+  `)
 
   if (result.errors) {
     throw result.errors
@@ -30,6 +31,7 @@ exports.createPages = async ({ graphql, actions }) => {
       component: path.resolve(`./src/templates/post.js`),
       context: {
         id: post.node.id,
+        tags: post.node.frontmatter.tags,
       },
     })
   })

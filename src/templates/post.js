@@ -1,18 +1,33 @@
 import React from "react"
 import styled from "styled-components"
-import { graphql } from "gatsby"
+import { graphql, Link } from "gatsby"
 import Header from "../components/Header"
 import Footer from "../components/Footer"
 
 export const pageQuery = graphql`
-  query markdown($id: String!) {
+  query markdown($id: String!, $tags: [String]!) {
     markdownRemark(id: { eq: $id }) {
-      id
       html
       frontmatter {
         title
         tags
         date(formatString: "YYYY年MM月DD日")
+      }
+    }
+    sameTagPosts: allMarkdownRemark(
+      limit: 5
+      sort: { order: DESC, fields: frontmatter___date }
+      filter: { frontmatter: { tags: { in: $tags } }, id: { ne: $id } }
+    ) {
+      edges {
+        node {
+          id
+          frontmatter {
+            title
+            tags
+            date(formatString: "YYYY年MM月DD日")
+          }
+        }
       }
     }
   }
@@ -58,6 +73,34 @@ const Body = styled.div`
       color: #666;
     }
   }
+  > section {
+    width: 30%;
+    @media screen and (max-width: 768px) {
+      width: 100%;
+    }
+    h3 {
+      padding: 0.5em;
+      margin: 0px;
+      border-radius: 2px;
+      box-sizing: content-box;
+      color: white;
+      background: var(--theme-color);
+    }
+    ul {
+      list-style: none;
+      padding: 0px;
+      li {
+        padding: 0.75em;
+        background: white;
+        margin-bottom: 1em;
+        border-radius: 2px;
+      }
+      a {
+        text-decoration: none;
+        color: black;
+      }
+    }
+  }
 `
 export default ({ data }) => {
   const html = data.markdownRemark.html
@@ -80,6 +123,28 @@ export default ({ data }) => {
           </div>
           <div dangerouslySetInnerHTML={{ __html: html }} />
         </article>
+        <section>
+          <h3>同じタグの投稿</h3>
+          <ul>
+            {data.sameTagPosts.edges.map(({ node }) => (
+              <li key={node.id}>
+                <Link to={node.id}>
+                  <h4>{node.frontmatter.title}</h4>
+                  <div>
+                    {node.frontmatter.tags.map((tag) => (
+                      <span key={tag} className="frontmatter tag">
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                  <div className="frontmatter date">
+                    <b>{node.frontmatter.date}</b>
+                  </div>
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </section>
       </Body>
       <Footer />
     </React.Fragment>
